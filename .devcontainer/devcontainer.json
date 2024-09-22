@@ -3,7 +3,21 @@
 {
 	"name": "Node.js",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm"
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"formulahendry.auto-close-tag",
+				"formulahendry.auto-rename-tag",
+				"esbenp.prettier-vscode",
+				"christian-kohler.path-intellisense",
+				"christian-kohler.npm-intellisense",
+				"ritwickdey.LiveServer",
+				"mhutchie.git-graph",
+				"dbaeumer.vscode-eslint"
+			]
+		}
+	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
