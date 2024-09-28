@@ -16,7 +16,15 @@ export default function RootLayout({
     <html lang="ja">
       <body className="container mx-auto">
         <Header />
-        {children}
+        <div className="flex">
+          <main className="w-3/4 p-4 bg-white shadow-lg rounded-lg">
+            {children}
+          </main>
+          <aside className="w-1/4 p-4 bg-gray-100">
+            <h2 class="text-center">Follow Us</h2>
+            <a class="twitter-timeline" href="https://twitter.com/Laplusdestiny?ref_src=twsrc%5Etfw">Tweets by Laplusdestiny</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </aside>
+        </div>
       </body>
     </html>
   );
