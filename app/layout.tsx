@@ -21,8 +21,8 @@ export default function RootLayout({
             {children}
           </main>
           <aside className="w-1/4 p-4 bg-gray-100">
-            <h2 class="text-center">Follow Us</h2>
-            <a class="twitter-timeline" href="https://twitter.com/Laplusdestiny?ref_src=twsrc%5Etfw">Tweets by Laplusdestiny</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <h2 className="text-center">Follow Us</h2>
+            <a className="twitter-timeline" href="https://twitter.com/Laplusdestiny?ref_src=twsrc%5Etfw">Tweets by Laplusdestiny</a> <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
           </aside>
         </div>
       </body>
