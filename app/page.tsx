@@ -24,8 +24,13 @@ export default async function Blogs() {
     })
   ).then((posts) =>
     // Sort by updated date
-    posts.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
+    posts.sort((a, b) => {
+      const dateA = new Date(a.frontmatter.date).getTime();
+      const dateB = new Date(b.frontmatter.date).getTime();
+      return dateB - dateA;
+    })
   );
+
 
   return (
     <div className="bg-white py-24 sm:py-32">
@@ -40,8 +45,8 @@ export default async function Blogs() {
               >
                 <div className="group relative">
                   {/* Display date */}
-                  <div class="flex items-center gap-x-4 text-xs">
-                    <div class="text-gray-500">{post.frontmatter.date}</div>
+                  <div className="flex items-center gap-x-4 text-xs">
+                    <div className="text-gray-500">{post.frontmatter.date}</div>
                   </div>
                   {/* Title, link */}
                   <h3 className="mt-3 text-lg font-semibold leading-6 text-blue-700 group-hover:text-blue-400">
