@@ -22,14 +22,14 @@ description: 'Introduction'
 
 ##### Main skills
 
-[![My Skills](https://skillicons.dev/icons?i=py,sklearn,tensorflow,linux,ubuntu,aws,dynamodb,postgres,sqlite,md,git,gitlab,github,bash,regex)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=py,sklearn,tensorflow,linux,ubuntu,aws,dynamodb,postgres,sqlite,md,git,gitlab,github,bash,regex&perline=8)](https://skillicons.dev)
 
 ##### Sub skills
 
-[![My Skills](https://skillicons.dev/icons?i=docker,c,cloudflare,firebase,vercel,html,css,js,ts,nodejs,react,nextjs,vue,nuxtjs,bootstrap,tailwind,vuetify,opencv,selenium)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=docker,c,cloudflare,firebase,vercel,html,css,js,ts,nodejs,react,nextjs,vue,nuxtjs,bootstrap,tailwind,vuetify,opencv,selenium&perline=8)](https://skillicons.dev)
 
 ##### Tools
-[![My Skills](https://skillicons.dev/icons?i=vscode,obsidian,latex)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=vscode,obsidian,latex&perline=8)](https://skillicons.dev)
 
 ### 趣味
 
@@ -39,7 +39,7 @@ description: 'Introduction'
   - PCゲー（Steam）は興味があるやつを雑食
 - YouTube
   - VTuberやYouTuberで時間が溶けている
-  - VTuber最推しは大神ミオ、他にも戌亥とこ、鏑木ろこ、
+  - VTuber最推しは大神ミオ🌲、他にも戌亥とこ🍹、鏑木ろこ🍕🎢などなど
   - YouTuberはQuizKnockや西園寺など
 - カメラ、ガジェット系
   - α7IIIとGX7MK2を愛用
@@ -47,13 +47,14 @@ description: 'Introduction'
 - 旅行
   - 国内海外行きたいところは多い
   - ドライブは得意、テスラのモデル3を狙っている
+  - 最近鉄道旅に興味が湧いてきている
 - システム開発（自己満的に）
   - バックエンド開発ばかりしているので、フロントエンド開発が最近ホット（当社比）
 
 ### Social media
 
-| Social media         | Link                              | Remarks                                             |
-| :------------------- | :-------------------------------- | :-------------------------------------------------- |
+| Social media         | Link                                | Remarks                                             |
+| :------------------- | :---------------------------------- | :-------------------------------------------------- |
 | misskey.io           | <https://misskey.io/@Laplusdestiny> | 最近は大体ここにいる                                |
 | X (formerly Twitter) | <https://x.com/Laplusdestiny>       | 最近はROM専、VTuberとか絵師さんを追いかけるためだけ |
 | GitHub               | <https://github.com/Laplusdestiny>  |                                                     |
