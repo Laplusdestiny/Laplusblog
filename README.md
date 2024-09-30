@@ -1,2 +1,4 @@
 # Laplusblog
 Blog repository
+
+postsに記事をmarkdownで記載することで自動的に記事投稿ができる
