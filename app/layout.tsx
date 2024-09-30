@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./Header";
+import Footer from "./Footer";
+import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Laplusblog",
@@ -16,15 +19,47 @@ export default function RootLayout({
     <html lang="ja">
       <body className="container mx-auto">
         <Header />
-        <div className="flex">
-          <main className="w-3/4 p-4 bg-white shadow-lg rounded-lg">
+        <div className="flex flex-col md:flex-row">
+          <main className="w-full md:w-3/4 p-4 bg-white shadow-lg rounded-lg">
             {children}
           </main>
-          <aside className="w-1/4 p-4 bg-gray-100">
-            <h2 className="text-center">Follow Us</h2>
-            <a className="twitter-timeline" href="https://twitter.com/Laplusdestiny?ref_src=twsrc%5Etfw">Tweets by Laplusdestiny</a> <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+          <aside className="hidden md:block md:w-1/4 p-4 bg-gray-100">
+            <h2 className="text-center">Follow Me</h2>
+            <div className="grid grid-cols-4 divide-x">
+              <div>
+                <Link href="https://x.com/Laplusdestiny">
+                  <Image
+                    src="https://img.icons8.com/?size=100&id=ud9VVQzOPag8&format=png&color=000000"
+                    height={10}
+                    width={70}
+                    alt="Twitter"
+                  />
+                </Link>
+              </div>
+              <div>
+                <Link href="https://misskey.io/@Laplusdestiny">
+                  <Image
+                    src="https://github.com/misskey-dev/assets/blob/main/public/favicon.png?raw=true"
+                    height={10}
+                    width={70}
+                    alt="misskey.io"
+                  />
+                </Link>
+              </div>
+              <div>
+                <Link href="https://github.com/Laplusdestiny">
+                  <Image
+                    src="https://img.icons8.com/?size=100&id=20675&format=png&color=000000"
+                    height={10}
+                    width={70}
+                    alt="GitHub"
+                  />
+                </Link>
+              </div>
+            </div>
           </aside>
         </div>
+        <Footer />
       </body>
     </html>
   );
