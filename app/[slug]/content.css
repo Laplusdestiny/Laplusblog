@@ -30,3 +30,22 @@ li {
 a {
   @apply text-indigo-600;
 }
+table {
+  @apply mt-6 w-full table-auto border-collapse bg-white shadow-lg;
+}
+
+th {
+  @apply bg-gray-100 text-left px-4 py-2 font-bold text-gray-700 border-b border-gray-300;
+}
+
+td {
+  @apply px-4 py-2 border-b border-gray-300;
+}
+
+thead {
+  @apply bg-gray-200;
+}
+
+tbody tr:hover {
+  @apply bg-gray-50;
+}
