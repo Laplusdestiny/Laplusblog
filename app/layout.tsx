@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Image from "next/image";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Laplusblog",
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="container mx-auto">
+        <Analytics />
         <Header />
         <div className="flex flex-col md:flex-row">
           <main className="w-full md:w-3/4 p-4 bg-white shadow-lg rounded-lg">
@@ -25,7 +27,7 @@ export default function RootLayout({
           </main>
           <aside className="hidden md:block md:w-1/4 p-4 bg-gray-100">
             <h2 className="text-center">Follow Me</h2>
-            <div className="grid grid-cols-4 divide-x">
+            <div className="grid grid-cols-4 place-content-center">
               <div>
                 <Link href="https://x.com/Laplusdestiny">
                   <Image
