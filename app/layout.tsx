@@ -5,6 +5,8 @@ import Footer from "./Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBluesky, faSquareGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
 export const metadata: Metadata = {
   title: "Laplusblog",
@@ -26,38 +28,25 @@ export default function RootLayout({
             {children}
           </main>
           <aside className="hidden md:block md:w-1/4 p-4 bg-gray-100">
-            <h2 className="text-center">Follow Me</h2>
-            <div className="grid grid-cols-4 place-content-center">
-              <div>
-                <Link href="https://x.com/Laplusdestiny">
-                  <Image
-                    src="https://img.icons8.com/?size=100&id=ud9VVQzOPag8&format=png&color=000000"
-                    height={10}
-                    width={70}
-                    alt="Twitter"
-                  />
-                </Link>
-              </div>
-              <div>
-                <Link href="https://misskey.io/@Laplusdestiny">
-                  <Image
-                    src="https://github.com/misskey-dev/assets/blob/main/public/favicon.png?raw=true"
-                    height={10}
-                    width={70}
-                    alt="misskey.io"
-                  />
-                </Link>
-              </div>
-              <div>
-                <Link href="https://github.com/Laplusdestiny">
-                  <Image
-                    src="https://img.icons8.com/?size=100&id=20675&format=png&color=000000"
-                    height={10}
-                    width={70}
-                    alt="GitHub"
-                  />
-                </Link>
-              </div>
+            <h2 className="text-center text-xl font-semibold mb-4">Follow Me</h2>
+            <div className="flex flex-col items-center space-y-4">
+              <Link href="https://x.com/Laplusdestiny" className="transition-transform transform hover:scale-110 text-black">
+                <FontAwesomeIcon icon={faXTwitter} className='h-[40px] w-[40px]' />
+              </Link>
+              <Link href="https://misskey.io/@Laplusdestiny" className="transition-transform transform hover:scale-110">
+                <Image
+                  src="https://github.com/misskey-dev/assets/blob/main/public/favicon.png?raw=true"
+                  height={40}
+                  width={40}
+                  alt="misskey.io"
+                />
+              </Link>
+              <Link href="https://github.com/Laplusdestiny" className="transition-transform transform hover:scale-110 text-black ">
+                <FontAwesomeIcon icon={faSquareGithub} className='h-[40px] w-[40px]' />
+              </Link>
+              <Link href="https://bsky.app/profile/laplusdestiny.com" className="transition-transform transform hover:scale-110 text-[#1185FE]">
+                <FontAwesomeIcon icon={faBluesky} className='h-[40px] w-[40px]' />
+              </Link>
             </div>
           </aside>
         </div>
