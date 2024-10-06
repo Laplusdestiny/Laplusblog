@@ -11,6 +11,22 @@ import { faBluesky, faSquareGithub, faXTwitter } from "@fortawesome/free-brands-
 export const metadata: Metadata = {
   title: "Laplusblog",
   description: "Blog page of Laplusdestiny",
+  openGraph: {
+    title: "Laplusblog",
+    description: "Blog page of Laplusdestiny",
+    url: "https://blog.laplusdestiny.com",
+    siteName: "Laplusblog",
+    images: [
+      {
+        url: "https://blog.laplusdestiny.com/ogp.png",
+        width: 1200,
+        height: 630,
+        alt: "Laplusblog OGP Image"
+      }
+    ],
+    locale: "ja_JP",
+    type: "website"
+  }
 };
 
 export default function RootLayout({
