@@ -37,6 +37,6 @@
     "typescript": "5",
     "textlint": "14.2.1",
     "textlint-rule-preset-ja-technical-writing": "^10.0.1",
-    "textlint-rule-preset-jtf-style": "^2.3.14",
+    "textlint-rule-preset-jtf-style": "^2.3.14"
   }
 }
