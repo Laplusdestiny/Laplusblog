@@ -18,7 +18,8 @@
 				"yzhang.markdown-all-in-one",
 				"oderwat.indent-rainbow",
 				"PKief.material-icon-theme",
-				"IBM.output-colorizer"
+				"IBM.output-colorizer",
+				"taichi.vscode-textlint"
 			]
 		}
 	}
