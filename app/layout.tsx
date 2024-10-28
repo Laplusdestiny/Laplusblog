@@ -55,6 +55,7 @@ export default function RootLayout({
                   height={40}
                   width={40}
                   alt="misskey.io"
+                  className="socialmedia"
                 />
               </Link>
               <Link href="https://github.com/Laplusdestiny" className="transition-transform transform hover:scale-110 text-black ">

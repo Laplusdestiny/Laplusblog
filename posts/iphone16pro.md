@@ -2,6 +2,7 @@
 title: iPhone16 Pro 購入
 date: "2024-10-01"
 description: "iPhone16 Proを購入するにあたって調査したことをメモ"
+tags: ["iphone", "gadgets", "apple"]
 ---
 
 ## iPhone14 Proからの機種変更の時期が来た

@@ -24,6 +24,7 @@ export default async function BlogPost({ params }) {
     const title = data.title;
     const date = data.date;
     const description = data.description || "Blog post on Laplusblog"; // Description from frontmatter or default value
+    const tags = (data.tags || []).sort(); // Extract tags or default to an empty array if not provided
 
     // Process the markdown content to convert it to HTML
     const processedContent = await unified()
@@ -73,6 +74,18 @@ export default async function BlogPost({ params }) {
                     <div className="flex items-center gap-x-4 text-xs">
                         <div className="text-gray-500">{date}</div>
                     </div>
+
+                    {/* Tags */}
+                    {tags.length > 0 && (
+                        <div className="mt-4 flex gap-2">
+                            {tags.map((tag, index) => (
+                                <span key={index} className="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-sm">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    )}
+
                     {/* Blog content rendered as HTML */}
                     <div
                         className="mt-6"
