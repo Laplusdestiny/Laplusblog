@@ -11,7 +11,7 @@ tags: ["introduction", "skills", "socialmedia"]
 
 雑多な備忘録的にブログを自作し始めましたが誰かのお役に立っていれば幸いです。
 
-興味あることや得意なことが近い人は是非ともつながっていただけたら嬉しいので、各種[Social media](#social-media)アカウントを覗いてフォローいただけるとより一層喜ばしい限りです！
+興味あることや得意なことが近い人は是非ともつながっていただけたら嬉しいので、各種Social mediaアカウントを覗いてフォローいただけるとより一層喜ばしい限りです！
 
 ## 業務
 
@@ -36,8 +36,10 @@ tags: ["introduction", "skills", "socialmedia"]
 
 - ゲーム
   - コンソールはSwitchとPS5、デスクトップPCもあり、Oculus Quest（初代）もある
+  - ソシャゲはアークナイツ、ブルーアーカイブがメイン、最近ゼンレスゾーンゼロにハマった
   - スプラが多い、ゼルダシリーズとかマリオシリーズもちらほら
-  - PCゲー（Steam）は興味があるやつを雑食
+  - PCゲー（[Steam](https://steamcommunity.com/id/laplusdestiny/)）は興味があるやつを雑食
+  - [ゲームアカウントはこちらにも](/network)
 - YouTube
   - VTuberやYouTuberで時間が溶けている
   - VTuber最推しは大神ミオ🌲、他にも戌亥とこ🍹、鏑木ろこ🍕🎢などなど
