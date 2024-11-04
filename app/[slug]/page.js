@@ -159,8 +159,9 @@ export default async function BlogPost({ params }) {
                                     const [date, message] = dateMessage.split(' : ');
                                     return (
                                         <tr key={index} className="border-b">
+
                                             <td className="px-4 py-2">{date}</td>
-                                            <td className="px-4 py-2">{message}</td>
+                                            <td className="px-4 py-2"><a href={`https://github.com/Laplusdestiny/Laplusblog/commits/${hash}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">{message}</a></td>
                                         </tr>
                                     );
                                 })}
