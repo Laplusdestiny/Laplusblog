@@ -12,6 +12,7 @@ import Head from 'next/head';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBluesky, faLine, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import './content.css';
+import { execSync } from 'child_process';
 
 // Parse markdown contents
 export default async function BlogPost({ params }) {
@@ -43,6 +44,15 @@ export default async function BlogPost({ params }) {
     const misskeyUrl = `https://misskey-hub.net/share/?text=Laplusblog+${encodeURIComponent(title)}&url=${encodeURIComponent(pageUrl)}&visibility=public&localOnly=0&manualInstance=misskey.io`;
     const blueskyUrl = `https://bsky.app/intent/compose?text=Laplusblog+${encodeURIComponent(title)} ${encodeURIComponent(pageUrl)}`;
     const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent(pageUrl)}%0a${encodeURIComponent(title)}`;
+
+    // Get git commit history for the markdown file
+    let commitHistory = [];
+    try {
+        const gitLog = execSync(`git log --pretty=format:"%h - %an, %ad : %s" --date=iso -- ${filePath}`).toString();
+        commitHistory = gitLog.split('\n');
+    } catch (error) {
+        console.error('Error retrieving commit history:', error);
+    }
 
     return (
         <>
@@ -125,6 +135,37 @@ export default async function BlogPost({ params }) {
                                 <FontAwesomeIcon icon={faLine} className='h-[30px]' />
                             </Link>
                         </div>
+                    </div>
+                </div>
+
+                {/* Commit History */}
+                <div className='mx-auto mt-12 max-w-3xl'>
+                    <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+                        Change History
+                    </h2>
+                    <div className="mt-4 border border-gray-300 rounded-lg p-4 bg-gray-50 overflow-x-auto">
+                        <table className="min-w-full text-sm text-gray-600">
+                            <thead>
+                                <tr className="bg-gray-200">
+
+                                    <th className="px-4 py-2 text-left font-semibold text-gray-800">Date</th>
+                                    <th className="px-4 py-2 text-left font-semibold text-gray-800">Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {commitHistory.map((commit, index) => {
+                                    const [hash, rest] = commit.split(' - ');
+                                    const [author, dateMessage] = rest.split(', ');
+                                    const [date, message] = dateMessage.split(' : ');
+                                    return (
+                                        <tr key={index} className="border-b">
+                                            <td className="px-4 py-2">{date}</td>
+                                            <td className="px-4 py-2">{message}</td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
