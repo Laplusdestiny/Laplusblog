@@ -12,7 +12,7 @@ import Head from 'next/head';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBluesky, faLine, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import './content.css';
-import { execSync } from 'child_process';
+import fetch from 'node-fetch';
 
 // Parse markdown contents
 export default async function BlogPost({ params }) {
@@ -45,11 +45,27 @@ export default async function BlogPost({ params }) {
     const blueskyUrl = `https://bsky.app/intent/compose?text=Laplusblog+${encodeURIComponent(title)} ${encodeURIComponent(pageUrl)}`;
     const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent(pageUrl)}%0a${encodeURIComponent(title)}`;
 
-    // Get git commit history for the markdown file
+    // Get git commit history for the markdown file using GitHub API
     let commitHistory = [];
     try {
-        const gitLog = execSync(`git log --pretty=format:"%h - %an, %ad : %s" --date=iso -- ${filePath}`).toString();
-        commitHistory = gitLog.split('\n');
+        const response = await fetch(`https://api.github.com/repos/Laplusdestiny/Laplusblog/commits?path=posts/${slug}.md`, {
+            headers: {
+                'Accept': 'application/vnd.github+json',
+                // 'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
+            }
+        });
+        if (response.ok) {
+            const commits = await response.json();
+            commitHistory = commits.map(commit => {
+                return {
+                    date: commit.commit.author.date,
+                    message: commit.commit.message,
+                    url: commit.html_url
+                };
+            });
+        } else {
+            console.error('Error retrieving commit history from GitHub:', response.statusText);
+        }
     } catch (error) {
         console.error('Error retrieving commit history:', error);
     }
@@ -147,24 +163,21 @@ export default async function BlogPost({ params }) {
                         <table className="min-w-full text-sm text-gray-600">
                             <thead>
                                 <tr className="bg-gray-200">
-
                                     <th className="px-4 py-2 text-left font-semibold text-gray-800">Date</th>
                                     <th className="px-4 py-2 text-left font-semibold text-gray-800">Message</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {commitHistory.map((commit, index) => {
-                                    const [hash, rest] = commit.split(' - ');
-                                    const [author, dateMessage] = rest.split(', ');
-                                    const [date, message] = dateMessage.split(' : ');
-                                    return (
-                                        <tr key={index} className="border-b">
-
-                                            <td className="px-4 py-2">{date}</td>
-                                            <td className="px-4 py-2"><a href={`https://github.com/Laplusdestiny/Laplusblog/commits/${hash}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">{message}</a></td>
-                                        </tr>
-                                    );
-                                })}
+                                {commitHistory.map((commit, index) => (
+                                    <tr key={index} className="border-b">
+                                        <td className="px-4 py-2">{commit.date}</td>
+                                        <td className="px-4 py-2">
+                                            <a href={commit.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+                                                {commit.message}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
