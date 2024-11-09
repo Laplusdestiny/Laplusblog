@@ -1,7 +1,22 @@
 ---
-title: Network
+title: アカウントたち
 date: "2024-09-29"
 description: "Social accounts"
+tags: ["game", "accounts", "socialmedia"]
 ---
 
-# My accounts
+## 私のアカウントたち
+
+ソーシャルメディア系のアカウントだけではなく、ゲームなどのアカウントもここにまとめて記載しておきます。気軽にフォローや申請いただいてOKです！
+
+### Game
+
+|       ゲーム       |        ID         |
+| :----------------: | :---------------: |
+|    アークナイツ    |   らぷらす#8275   |
+|  ブルーアーカイブ  |      119212       |
+| ゼンレスゾーンゼロ |    1311935194     |
+|       Switch       | SW-3492-8610-7812 |
+|        PSN         |    Laplus0108     |
+|       Steam        |   laplusdestiny   |
+

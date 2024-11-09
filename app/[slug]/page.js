@@ -12,6 +12,7 @@ import Head from 'next/head';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBluesky, faLine, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import './content.css';
+import fetch from 'node-fetch';
 
 // Parse markdown contents
 export default async function BlogPost({ params }) {
@@ -43,6 +44,30 @@ export default async function BlogPost({ params }) {
     const misskeyUrl = `https://misskey-hub.net/share/?text=Laplusblog+${encodeURIComponent(title)}&url=${encodeURIComponent(pageUrl)}&visibility=public&localOnly=0&manualInstance=misskey.io`;
     const blueskyUrl = `https://bsky.app/intent/compose?text=Laplusblog+${encodeURIComponent(title)} ${encodeURIComponent(pageUrl)}`;
     const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent(pageUrl)}%0a${encodeURIComponent(title)}`;
+
+    // Get git commit history for the markdown file using GitHub API
+    let commitHistory = [];
+    try {
+        const response = await fetch(`https://api.github.com/repos/Laplusdestiny/Laplusblog/commits?path=posts/${slug}.md`, {
+            headers: {
+                'Accept': 'application/vnd.github+json'
+            }
+        });
+        if (response.ok) {
+            const commits = await response.json();
+            commitHistory = commits.map(commit => {
+                return {
+                    date: commit.commit.author.date,
+                    message: commit.commit.message,
+                    url: commit.html_url
+                };
+            });
+        } else {
+            console.error('Error retrieving commit history from GitHub:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error retrieving commit history:', error);
+    }
 
     return (
         <>
@@ -126,6 +151,37 @@ export default async function BlogPost({ params }) {
                             </Link>
                         </div>
                     </div>
+                </div>
+
+                {/* Commit History */}
+                <div className='mx-auto mt-12 max-w-3xl'>
+                    <details>
+                        <summary className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl cursor-pointer">
+                            Change History
+                        </summary>
+                        <div className="mt-4 border border-gray-300 rounded-lg p-4 bg-gray-50 overflow-x-auto">
+                            <table className="min-w-full text-sm text-gray-600">
+                                <thead>
+                                    <tr className="bg-gray-200">
+                                        <th className="px-4 py-2 text-left font-semibold text-gray-800">Date</th>
+                                        <th className="px-4 py-2 text-left font-semibold text-gray-800">Message</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {commitHistory.map((commit, index) => (
+                                        <tr key={index} className="border-b">
+                                            <td className="px-4 py-2">{commit.date}</td>
+                                            <td className="px-4 py-2">
+                                                <a href={commit.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+                                                    {commit.message}
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
                 </div>
             </div>
         </>
