@@ -111,6 +111,23 @@ export default async function BlogPost({ params }) {
                         </div>
                     )}
 
+                    {/* Table of Contents */}
+                    <div className="mt-6">
+                        <h2 className="text-lg font-semibold text-gray-900">Table of Contents</h2>
+                        <div className="mt-2 text-sm text-gray-700">
+                            <ul className="pl-4">
+                                {/* ToC */}
+                                {contentHtml.match(/<h2(.*?)>(.*?)<\/h2>/g).map((heading, index) => {
+                                    const title = heading.match(/<h2(.*?)>(.*?)<\/h2>/)[2];
+                                    // const slug = encodeURI(title.toLowerCase().replace(/[^a-zA-Z0-9 -]/g, ''));
+                                    return (
+                                        <li key={index}>{title}</li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                    </div>
+
                     {/* Blog content rendered as HTML */}
                     <div
                         className="mt-6"
