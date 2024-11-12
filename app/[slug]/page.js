@@ -8,6 +8,8 @@ import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import rehypeAutoLinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
+import createDOMPurify from 'dompurify';
+import { JSDOM } from 'jsdom';
 import Link from "next/link";
 import Image from 'next/image';
 import Head from 'next/head';
@@ -15,6 +17,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBluesky, faLine, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import './content.css';
 import fetch from 'node-fetch';
+
+// Create a DOMPurify instance with jsdom
+const window = new JSDOM('').window;
+const DOMPurify = createDOMPurify(window);
 
 // Parse markdown contents
 export default async function BlogPost({ params }) {
@@ -121,8 +127,8 @@ export default async function BlogPost({ params }) {
                         <div className="mt-2 text-sm text-gray-700">
                             <ul className="pl-4 list-disc list-inside toc-list">
                                 {contentHtml.match(/<h2(.*?)>(.*?)<\/h2>/g).map((heading, index) => {
-                                    const title = heading.match(/id="(.*?)"/)[1];
-                                    const headingText = heading.replace(/<[^>]*>/g, '').trim();
+                                    const title = DOMPurify.sanitize(heading.match(/id=\"(.*?)\"/)[1]);
+                                    const headingText = DOMPurify.sanitize(heading, { ALLOWED_TAGS: [] }).trim();
                                     return (
                                         <li key={index} className="mb-1 hover:text-blue-700 transition-all toc-item">
                                             <a href={`#${title}`} className="text-blue-600 underline hover:no-underline toc-link">{headingText}</a>
