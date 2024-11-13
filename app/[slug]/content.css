@@ -1,45 +1,46 @@
 p {
-  @apply mt-6 text-xl leading-8;
+  @apply mt-4 text-lg leading-7;
 }
 
 h1 {
-  @apply mt-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl;
+  @apply mt-4 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl;
 }
 
 h2 {
-  @apply mt-8 text-2xl font-bold tracking-tight text-gray-900 border-t border-gray-300 pt-4;
+  @apply mt-6 text-xl font-bold tracking-tight text-gray-900 border-t border-gray-300 pt-3;
 }
 
 h3 {
-  @apply mt-6 text-xl font-bold tracking-tight text-gray-900;
+  @apply mt-4 text-lg font-bold tracking-tight text-gray-900;
 }
 
 h4 {
-  @apply mt-6 text-lg font-bold tracking-tight text-gray-900;
+  @apply mt-4 text-base font-bold tracking-tight text-gray-900;
 }
 
 ul,
 ol {
-  @apply mt-6 list-disc ml-8;
+  @apply mt-4 list-disc ml-6;
 }
 
 li {
-  @apply mt-2;
+  @apply mt-1;
 }
 
 a {
   @apply text-indigo-600;
 }
+
 table {
-  @apply mt-6 w-full table-auto border-collapse bg-white shadow-lg;
+  @apply mt-4 w-full table-auto border-collapse bg-white shadow-lg;
 }
 
 th {
-  @apply bg-gray-100 text-left px-4 py-2 font-bold text-gray-700 border-b border-gray-300;
+  @apply bg-gray-100 text-left px-2 py-1 font-bold text-gray-700 border-b border-gray-300;
 }
 
 td {
-  @apply px-4 py-2 border-b border-gray-300;
+  @apply px-2 py-1 border-b border-gray-300;
 }
 
 thead {
