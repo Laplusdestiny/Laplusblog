@@ -44,7 +44,7 @@ export default function RootLayout({
             {children}
           </main>
           <aside className="hidden md:block md:w-1/4 p-4 bg-gray-100">
-            <h2 className="text-center text-xl font-semibold mb-4">Follow Me</h2>
+            <h2 className="text-center text-xl font-semibold mb-4 no-border">Follow Me</h2>
             <div className="flex flex-col items-center space-y-4">
               <Link href="https://x.com/Laplusdestiny" className="transition-transform transform hover:scale-110 text-black">
                 <FontAwesomeIcon icon={faXTwitter} className='h-[40px] w-[40px]' />
