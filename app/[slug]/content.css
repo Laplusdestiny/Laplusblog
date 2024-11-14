@@ -10,6 +10,11 @@ h2 {
   @apply mt-6 text-xl font-bold tracking-tight text-gray-900 border-t border-gray-300 pt-3;
 }
 
+h2.no-border {
+  border-top: none !important;
+  padding-top: 0 !important;
+}
+
 h3 {
   @apply mt-4 text-lg font-bold tracking-tight text-gray-900;
 }
@@ -20,11 +25,11 @@ h4 {
 
 ul,
 ol {
-  @apply mt-4 list-disc ml-6;
+  @apply mt-2 list-disc ml-8;
 }
 
 li {
-  @apply mt-1;
+  @apply mt-2;
 }
 
 a {
@@ -32,15 +37,15 @@ a {
 }
 
 table {
-  @apply mt-4 w-full table-auto border-collapse bg-white shadow-lg;
+  @apply mt-6 w-full table-auto border-collapse bg-white shadow-lg;
 }
 
 th {
-  @apply bg-gray-100 text-left px-2 py-1 font-bold text-gray-700 border-b border-gray-300;
+  @apply bg-gray-100 text-left px-4 py-2 font-bold text-gray-700 border-b border-gray-300;
 }
 
 td {
-  @apply px-2 py-1 border-b border-gray-300;
+  @apply px-4 py-2 border-b border-gray-300;
 }
 
 thead {
