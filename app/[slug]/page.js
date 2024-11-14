@@ -57,6 +57,7 @@ export default async function BlogPost({ params }) {
 
     // Get git commit history for the markdown file using GitHub API
     let commitHistory = [];
+    let latestCommitDate = null;
     try {
         const response = await fetch(`https://api.github.com/repos/Laplusdestiny/Laplusblog/commits?path=posts/${slug}.md`, {
             headers: {
@@ -72,6 +73,9 @@ export default async function BlogPost({ params }) {
                     url: commit.html_url
                 };
             });
+            if (commits.length > 0) {
+                latestCommitDate = commits[0].commit.author.date;
+            }
         } else {
             console.error('Error retrieving commit history from GitHub:', response.statusText);
         }
@@ -107,7 +111,9 @@ export default async function BlogPost({ params }) {
                     </h1>
                     {/* Blog date */}
                     <div className="flex items-center gap-x-4 text-xs">
-                        <div className="text-gray-500">{date}</div>
+                        <div className="text-gray-500">
+                            {date} {latestCommitDate && `(Latest update: ${new Date(latestCommitDate).toISOString().split('T')[0]})`}
+                        </div>
                     </div>
 
                     {/* Tags */}
