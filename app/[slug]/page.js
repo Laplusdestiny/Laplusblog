@@ -17,6 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBluesky, faLine, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import './content.css';
 import fetch from 'node-fetch';
+import { notFound } from 'next/navigation';
 
 // Create a DOMPurify instance with jsdom
 const window = new JSDOM('').window;
@@ -26,6 +27,11 @@ const DOMPurify = createDOMPurify(window);
 export default async function BlogPost({ params }) {
     const { slug } = params;
     const filePath = path.join(process.cwd(), 'posts', `${slug}.md`);
+
+    // Check if the markdown file exists
+    if (!fs.existsSync(filePath)) {
+        return notFound();
+    }
 
     // Read the markdown file content from the given file path
     const fileContents = fs.readFileSync(filePath, 'utf8');

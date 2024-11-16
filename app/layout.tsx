@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBluesky, faSquareGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Laplusblog",
@@ -68,6 +69,7 @@ export default function RootLayout({
           </aside>
         </div>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
