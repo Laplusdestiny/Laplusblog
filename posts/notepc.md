@@ -95,4 +95,17 @@ Intel CPUの問題もあり最近はコスパのいいRyzenのほうが人気に
   - 一応XREAL Air2 Proがあるので、USB DP Alt mode対応しているUSB-Cポートがあるといい。
 - 充電はUSB-Cでもできたほうがいい。
 
-これらを満たすノートPCを探すたびに出ます。（探しながら適宜更新しようと思います）
+これらを満たすノートPCを探すたびに出ます。（購入したらそれを最後に載せようと思います）
+
+## 欲しいノートPC情報（リアルタイム更新）
+
+misskeyのアカウント（サブ垢）に欲しいPCの情報を投稿してまとめています。こちらでも見られます。
+
+<iframe
+  src="https://misskey.cloud/embed/clips/a0pyjwrvhw"
+    data-misskey-embed-id="v1_iowjsbvljs"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    style="border: none; width: 100%; max-width: 500px; height: 300px; color-scheme: light dark; display: block; margin: 0 auto;"
+></iframe>
+<script defer src="https://misskey.cloud/embed.js"></script>

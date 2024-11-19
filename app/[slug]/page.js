@@ -45,10 +45,10 @@ export default async function BlogPost({ params }) {
     const processedContent = await unified()
         .use(remarkParse) // Parse the markdown content into an abstract syntax tree (AST)
         .use(remarkGfm) // Add support for GitHub Flavored Markdown (GFM)
-        .use(remarkRehype) // Convert the markdown AST to a rehype AST (HTML)
+        .use(remarkRehype, { allowDangerousHtml: true }) // Convert the markdown AST to a rehype AST (HTML)
         .use(rehypeSlug) // Add slugs to headings to enable linking
-        .use(rehypeAutoLinkHeadings)  // Add auto-generated anchor links to headings
-        .use(rehypeStringify) // Convert the rehype AST to an HTML string
+        .use(rehypeAutoLinkHeadings) // Add auto-generated anchor links to headings
+        .use(rehypeStringify, { allowDangerousHtml: true }) // Convert the rehype AST to an HTML string
         .process(content);
 
     const contentHtml = processedContent.toString();
