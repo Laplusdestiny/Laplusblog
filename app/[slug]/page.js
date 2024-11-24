@@ -12,7 +12,6 @@ import createDOMPurify from 'dompurify';
 import { JSDOM } from 'jsdom';
 import Link from "next/link";
 import Image from 'next/image';
-import Head from 'next/head';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBluesky, faLine, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import './content.css';
@@ -22,6 +21,57 @@ import { notFound } from 'next/navigation';
 // Create a DOMPurify instance with jsdom
 const window = new JSDOM('').window;
 const DOMPurify = createDOMPurify(window);
+
+// Generate metadata for each blog post
+export async function generateMetadata({ params }) {
+    const { slug } = params;
+    const filePath = path.join(process.cwd(), 'posts', `${slug}.md`);
+
+    // Check if the markdown file exists
+    if (!fs.existsSync(filePath)) {
+        return notFound();
+    }
+
+    // Read the markdown file content from the given file path
+    const fileContents = fs.readFileSync(filePath, 'utf8');
+    const { data } = matter(fileContents); // Extract metadata from the markdown file
+    const title = data.title;
+    const description = data.description || "Blog post on Laplusblog"; // Description from frontmatter or default value
+
+    return {
+        title: `${title} - Laplusblog`,
+        description: description,
+        openGraph: {
+            title: `${title} - Laplusblog`,
+            description: description,
+            type: 'article',
+            siteName: 'Laplusblog',
+            url: `https://blog.laplusdestiny.com/${slug}`,
+            images: [
+                {
+                    url: 'https://blog.laplusdestiny.com/ogp.png',
+                    width: 800,
+                    height: 600,
+                    alt: title,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${title} - Laplusblog`,
+            description: description,
+            image: {
+                url: 'https://blog.laplusdestiny.com/ogp.png',
+                alt: title,
+                width: 800,
+                height: 600,
+            },
+            url: `https://blog.laplusdestiny.com/${slug}`,
+            site: '@Laplusdestiny',
+            creator: '@Laplusdestiny',
+        }
+    };
+}
 
 // Parse markdown contents
 export default async function BlogPost({ params }) {
@@ -38,7 +88,6 @@ export default async function BlogPost({ params }) {
     const { data, content } = matter(fileContents); // Extract metadata and content from the markdown file
     const title = data.title;
     const date = data.date;
-    const description = data.description || "Blog post on Laplusblog"; // Description from frontmatter or default value
     const tags = (data.tags || []).sort(); // Extract tags or default to an empty array if not provided
 
     // Process the markdown content to convert it to HTML
@@ -55,7 +104,6 @@ export default async function BlogPost({ params }) {
 
     // Construct URLs for sharing on various social media platforms
     const pageUrl = `https://blog.laplusdestiny.com/${slug}`;
-    const ogImage = '/ogp.png';
     const twitterUrl = `https://twitter.com/share?url=${pageUrl}&text=Laplusblog ${encodeURIComponent(title)}`;
     const misskeyUrl = `https://misskey-hub.net/share/?text=Laplusblog+${encodeURIComponent(title)}&url=${encodeURIComponent(pageUrl)}&visibility=public&localOnly=0&manualInstance=misskey.io`;
     const blueskyUrl = `https://bsky.app/intent/compose?text=Laplusblog+${encodeURIComponent(title)} ${encodeURIComponent(pageUrl)}`;
@@ -91,23 +139,6 @@ export default async function BlogPost({ params }) {
 
     return (
         <>
-            {/* OGP settings for each page */}
-            <Head>
-                <title>{title} - Laplusblog</title>
-                <meta name="description" content={description} />
-                <meta property="og:title" content={title} />
-                <meta property="og:description" content={description} />
-                <meta property="og:url" content={pageUrl} />
-                <meta property="og:image" content={`https://blog.laplusdestiny.com${ogImage}`} />
-                <meta property="og:type" content="article" />
-                <meta property="og:site_name" content="Laplusblog" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={title} />
-                <meta name="twitter:description" content={description} />
-                <meta name="twitter:image" content={`https://blog.laplusdestiny.com${ogImage}`} />
-                <meta name="twitter:url" content={pageUrl} />
-            </Head>
-
             {/* Blog content */}
             <div className="bg-white px-6 py-32 lg:px-8">
                 <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
