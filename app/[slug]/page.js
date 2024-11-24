@@ -57,12 +57,14 @@ export async function generateMetadata({ params }) {
             ],
         },
         twitter: {
-            cardType: 'summary_large_image',
+            card: 'summary_large_image',
             title: title,
             description: description,
             image: {
                 url: '/ogp.png',
                 alt: title,
+                width: 800,
+                height: 600,
             },
             url: `https://blog.laplusdestiny.com/${slug}`,
         }
