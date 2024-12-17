@@ -10,13 +10,11 @@ export default function ClipboardButton({ clipboardText }) {
     };
 
     return (
-        <div className='col-span-1 flex justify-center bg-black text-white items-center'>
-            <button
-                onClick={handleClick}
-                className='text-white no-underline bg-transparent border-none cursor-pointer'
-            >
-                <FontAwesomeIcon icon={faClipboard} className='h-[30px]' />
-            </button>
-        </div>
+        <button
+            onClick={handleClick}
+            className='text-white no-underline bg-transparent border-none cursor-pointer'
+        >
+            <FontAwesomeIcon icon={faClipboard} className='h-[30px]' />
+        </button>
     );
 }
