@@ -14,9 +14,11 @@ import Link from "next/link";
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBluesky, faLine, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 import './content.css';
 import fetch from 'node-fetch';
 import { notFound } from 'next/navigation';
+import ClipboardButton from './ClipboardButton';
 
 // Create a DOMPurify instance with jsdom
 const window = new JSDOM('').window;
@@ -108,6 +110,7 @@ export default async function BlogPost({ params }) {
     const misskeyUrl = `https://misskey-hub.net/share/?text=Laplusblog+${encodeURIComponent(title)}&url=${encodeURIComponent(pageUrl)}&visibility=public&localOnly=0&manualInstance=misskey.io`;
     const blueskyUrl = `https://bsky.app/intent/compose?text=Laplusblog+${encodeURIComponent(title)} ${encodeURIComponent(pageUrl)}`;
     const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent(pageUrl)}%0a${encodeURIComponent(title)}`;
+    const clipboardText = `Laplusblog ${title} - ${pageUrl}`;
 
     // Get git commit history for the markdown file using GitHub API
     let commitHistory = [];
@@ -191,7 +194,7 @@ export default async function BlogPost({ params }) {
 
                 {/* Share buttons */}
                 <div className='mx-auto mt-8 max-w-3xl gap-4'>
-                    <div className='mx-auto mt-8 grid grid-cols-4'>
+                    <div className='mx-auto mt-8 grid grid-cols-5'>
                         {/* Twitter Share Button */}
                         <div className='col-span-1 flex justify-center bg-black text-white items-center'>
                             <Link href={twitterUrl} target="_blank" rel="noopener noreferrer" className='text-white no-underline'>
@@ -220,6 +223,10 @@ export default async function BlogPost({ params }) {
                             <Link href={lineUrl} target="_blank" rel="noopener noreferrer" className='text-white no-underline'>
                                 <FontAwesomeIcon icon={faLine} className='h-[30px]' />
                             </Link>
+                        </div>
+                        {/* Clipboard Button */}
+                        <div className='col-span-1 flex justify-center bg-black text-white items-center'>
+                            <ClipboardButton clipboardText={clipboardText} />
                         </div>
                     </div>
                 </div>
