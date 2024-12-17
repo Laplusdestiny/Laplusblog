@@ -14,7 +14,6 @@ import Link from "next/link";
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBluesky, faLine, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 import './content.css';
 import fetch from 'node-fetch';
 import { notFound } from 'next/navigation';
