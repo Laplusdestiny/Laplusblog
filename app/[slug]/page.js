@@ -171,11 +171,12 @@ export default async function BlogPost({ params }) {
                         <h2 className="text-lg font-semibold text-gray-900 mb-3 toc-heading">Table of Contents</h2>
                         <div className="mt-2 text-sm text-gray-700">
                             <ul className="pl-4 list-disc list-inside toc-list">
-                                {contentHtml.match(/<h2(.*?)>(.*?)<\/h2>/g).map((heading, index) => {
+                                {contentHtml.match(/<h[23](.*?)>(.*?)<\/h[23]>/g).map((heading, index) => {
                                     const title = DOMPurify.sanitize(heading.match(/id=\"(.*?)\"/)[1]);
                                     const headingText = DOMPurify.sanitize(heading, { ALLOWED_TAGS: [] }).trim();
+                                    const isH3 = heading.startsWith('<h3');
                                     return (
-                                        <li key={index} className="mb-1 hover:text-blue-700 transition-all toc-item">
+                                        <li key={index} className={`mb-1 hover:text-blue-700 transition-all toc-item ${isH3 ? 'pl-4' : ''}`}>
                                             <a href={`#${title}`} className="text-blue-600 underline hover:no-underline toc-link">{headingText}</a>
                                         </li>
                                     );
