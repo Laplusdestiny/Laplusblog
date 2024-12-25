@@ -3,7 +3,8 @@
   "filters": {},
   "rules": {
     "preset-ja-technical-writing": {
-      "ja-technical-writing/no-doubled-joshi": false
+      "ja-technical-writing/no-doubled-joshi": false,
+      "ja-technical-writing/no-exclamation-question-mark": false,
     },
     "preset-jtf-style": true,
     "@textlint-ja/no-synonyms": true
