@@ -100,3 +100,7 @@ img.socialmedia {
 .toc-link:hover {
   text-decoration: none;
 }
+
+blockquote {
+  @apply mt-4 pl-4 border-l-4 border-gray-300 italic text-gray-600 text-sm;
+}
