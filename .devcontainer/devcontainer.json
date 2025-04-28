@@ -19,7 +19,7 @@
 				"oderwat.indent-rainbow",
 				"PKief.material-icon-theme",
 				"IBM.output-colorizer",
-				"taichi.vscode-textlint",
+				"3w36zj6.textlint",
 				"github.vscode-github-actions",
 				"GitHub.copilot",
 				"GitHub.copilot-chat",
@@ -37,7 +37,10 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm install",
+	"postCreateCommand": [
+		"npm install",
+		"npm -g install npm-check-updates"
+	],
 
 	// Configure tool-specific properties.
 	// "customizations": {},
