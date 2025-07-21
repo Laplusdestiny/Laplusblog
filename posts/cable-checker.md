@@ -11,7 +11,7 @@ tags: ["tools", "gadget"]
 
 [USB CABLE CHECKER 2](https://bit-trade-one.co.jp/adusbcim/)
 
-![Cable Checker](/cable-checker/cable-checker.webp)
+![Cable Checker](/posts/cable-checker/cable-checker.webp)
 *人気のCable Checker 2*
 
 発売自体は結構前のようですが、定期的にウェブ記事に取り上げられているようで、最近はUSB-Cの規格が混迷を極めているため、このようなツールでスペックを確認できるのは非常に便利です。

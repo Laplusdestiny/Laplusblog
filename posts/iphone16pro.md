@@ -34,10 +34,10 @@ tags: ["iphone", "gadgets", "apple"]
 - 10/08 発送通知（10/9到着予定）
 - 10/09 到着！
 
-![iPhone16 Pro 注文時](/iphone16pro_order1.jpeg)
+![iPhone16 Pro 注文時](/posts/iphone16/iphone16pro_order1.jpeg)
 *注文時のステータス*
 
-![iPhone16 Pro 発送完了時](/iphone16pro_order2.jpeg)
+![iPhone16 Pro 発送完了時](/posts/iphone16/iphone16pro_order2.jpeg)
 *発送完了連絡が！*
 
 ## iPhone 16ではなく16 Proを選んだ理由
@@ -73,18 +73,18 @@ tags: ["iphone", "gadgets", "apple"]
 
 当初の配達予定からは1週間近く短くなって無事に到着！（爆弾です！（瀬戸弘司さん風））
 
-![iPhone16 Pro 外箱](/iphone16_package1.jpg)
+![iPhone16 Pro 外箱](/posts/iphone16/iphone16_package1.jpg)
 
 内容物がどんどん減っているので、毎回買うたびに外箱がどんどん小さくなっていきますね～ガジェットオタクとしてはどんどん余っていくだけだったのでこれぐらいのパッケージで十分な感じはします。
 
 開けてみるといつものやつが！いつでもこれを開けるワクワク感は健在です！
 
-![iPhone16 Pro パッケージ](/iphone16_package2.jpg)
+![iPhone16 Pro パッケージ](/posts/iphone16/iphone16_package2.jpg)
 
 
 裸の写真は撮っておらず、そのままガラスフィルムとケースを付けてしまいました。
 
-![iPhone16 ProとNativeUnionのケース](/iphone16_nativeunioncase.jpg)
+![iPhone16 ProとNativeUnionのケース](/posts/iphone16/iphone16_nativeunioncase.jpg)
 
 今回付けたアクセサリーはこちら
 
@@ -112,7 +112,7 @@ NIMASOのガラスフィルムはガイドをiPhoneに被せて、フィルム�
 
 簡単に言えば、購入後13ヶ月目～25ヶ月目の間に機種変更か端末返却をすると約半額近くの支払いが免除になるプログラムです。
 
-[![スマホトクするプログラム 概要](/au_tokusuru_program.webp)](https://www.au.com/mobile/tokusuru-program/)
+[![スマホトクするプログラム 概要](/posts/iphone16/au_tokusuru_program.webp)](https://www.au.com/mobile/tokusuru-program/)
 
 今回はauでの機種変更をやめてApple Storeでの購入に切り替えたので、端末返却でプログラムを利用することにしました。
 
