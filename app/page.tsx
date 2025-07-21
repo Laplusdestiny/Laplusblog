@@ -55,35 +55,43 @@ export default async function Blogs() {
 
 
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-background py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl no-border">記事一覧</h2>
-          <div className="mt-10 space-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl no-border">記事一覧</h2>
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (
               <article
                 key={post.slug}
-                className="flex max-w-xl flex-col items-start justify-between"
+                className="flex flex-col items-start justify-between rounded-lg border p-4 transition-shadow hover:shadow-lg"
               >
                 <div className="group relative">
                   {/* Display date */}
                   <div className="flex items-center gap-x-4 text-xs">
-                    <div className="text-gray-500">{post.frontmatter.date}</div>
+                    <div className="text-muted-foreground">{post.frontmatter.date}</div>
                   </div>
                   {/* Title, link */}
-                  <h3 className="mt-3 text-lg font-semibold leading-6 text-blue-700 group-hover:text-blue-400">
+                  <h3 className="mt-3 text-lg font-semibold leading-6 text-primary group-hover:text-primary/80">
                     <Link
                       href={`/${post.slug}`}
-                      className="mt-3 text-lg font-semibold leading-6 text-blue-700 group-hover:text-blue-400"
+                      className="mt-3 text-lg font-semibold leading-6 text-primary group-hover:text-primary/80"
                     >
                       {post.frontmatter.title}
                     </Link>
                   </h3>
                   {/* Description */}
                   <p
-                    className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600"
+                    className="mt-5 line-clamp-3 text-sm leading-6 text-muted-foreground"
                     dangerouslySetInnerHTML={{ __html: `${post.frontmatter.description}` }}
                   ></p>
+                  {/* Tags */}
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {post.frontmatter.tags && post.frontmatter.tags.map((tag: string) => (
+                      <Link key={tag} href={`/tags/${tag}`} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground hover:bg-secondary/80">
+                        {tag}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </article>
             ))}
