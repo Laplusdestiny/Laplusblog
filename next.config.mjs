@@ -14,6 +14,15 @@ const nextConfig = {
             },
         ]
     },
+    async redirects() {
+        return [
+            {
+                source: '/:slug((?!posts|tags|api|_next).*)?',
+                destination: '/posts/:slug',
+                permanent: true,
+            },
+        ];
+    },
 };
 
 if (process.env.NODE_ENV === 'development') {
