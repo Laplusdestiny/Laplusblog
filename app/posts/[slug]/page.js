@@ -142,42 +142,47 @@ export default async function BlogPost({ params }) {
     return (
         <>
             {/* Blog content */}
-            <div className="bg-white px-6 py-32 lg:px-8">
-                <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
+            <div className="bg-background px-6 py-32 lg:px-8">
+                <div className="mx-auto max-w-3xl text-base leading-7 text-foreground">
+                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                        <Link href="/" className="hover:underline">ホーム</Link>
+                        <span>/</span>
+                        <span>{title}</span>
+                    </div>
                     {/* Blog title */}
-                    <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                    <h1 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                         {title}
                     </h1>
                     {/* Blog date */}
                     <div className="flex items-center gap-x-4 text-xs">
-                        <div className="text-gray-500">
+                        <div className="text-muted-foreground">
                             {date} {latestCommitDate && `(Latest update: ${new Date(latestCommitDate).toISOString().split('T')[0]})`}
                         </div>
                     </div>
 
                     {/* Tags */}
                     {tags.length > 0 && (
-                        <div className="mt-4 flex gap-2">
+                        <div className="mt-4 flex flex-wrap gap-2">
                             {tags.map((tag, index) => (
-                                <span key={index} className="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-sm">
+                                <Link key={index} href={`/tags/${tag}`} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground hover:bg-secondary/80">
                                     {tag}
-                                </span>
+                                </Link>
                             ))}
                         </div>
                     )}
 
                     {/* Table of Contents */}
-                    <div className="mt-6 p-4 border border-gray-300 rounded-lg bg-gray-50 toc-container">
-                        <h2 className="text-lg font-semibold text-gray-900 mb-3 toc-heading">Table of Contents</h2>
-                        <div className="mt-2 text-sm text-gray-700">
+                    <div className="mt-6 p-4 border rounded-lg bg-card toc-container">
+                        <h2 className="text-lg font-semibold text-card-foreground mb-3 toc-heading">Table of Contents</h2>
+                        <div className="mt-2 text-sm text-card-foreground">
                             <ul className="pl-4 list-disc list-inside toc-list">
                                 {contentHtml.match(/<h[23](.*?)>(.*?)<\/h[23]>/g).map((heading, index) => {
-                                    const title = DOMPurify.sanitize(heading.match(/id=\"(.*?)\"/)[1]);
+                                    const id = DOMPurify.sanitize(heading.match(/id=\"(.*?)\"/)[1]);
                                     const headingText = DOMPurify.sanitize(heading, { ALLOWED_TAGS: [] }).trim();
                                     const isH3 = heading.startsWith('<h3');
                                     return (
-                                        <li key={index} className={`mb-1 hover:text-blue-700 transition-all toc-item ${isH3 ? 'pl-4' : ''}`}>
-                                            <a href={`#${title}`} className="text-blue-600 underline hover:no-underline toc-link">{headingText}</a>
+                                        <li key={index} className={`mb-1 hover:text-primary transition-all toc-item ${isH3 ? 'pl-4' : ''}`}>
+                                            <a href={`#${id}`} className="text-primary/80 underline hover:no-underline toc-link">{headingText}</a>
                                         </li>
                                     );
                                 })}
@@ -187,7 +192,7 @@ export default async function BlogPost({ params }) {
 
                     {/* Blog content rendered as HTML */}
                     <div
-                        className="mt-6"
+                        className="mt-6 prose lg:prose-xl dark:prose-invert"
                         dangerouslySetInnerHTML={{ __html: contentHtml }}
                     ></div>
                 </div>
@@ -234,23 +239,23 @@ export default async function BlogPost({ params }) {
                 {/* Commit History */}
                 <div className='mx-auto mt-12 max-w-3xl'>
                     <details>
-                        <summary className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl cursor-pointer">
+                        <summary className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl cursor-pointer">
                             Change History
                         </summary>
-                        <div className="mt-4 border border-gray-300 rounded-lg p-4 bg-gray-50 overflow-x-auto">
-                            <table className="min-w-full text-sm text-gray-600">
+                        <div className="mt-4 border rounded-lg p-4 bg-card overflow-x-auto">
+                            <table className="min-w-full text-sm text-muted-foreground">
                                 <thead>
-                                    <tr className="bg-gray-200">
-                                        <th className="px-4 py-2 text-left font-semibold text-gray-800">Date</th>
-                                        <th className="px-4 py-2 text-left font-semibold text-gray-800">Message</th>
+                                    <tr className="bg-muted">
+                                        <th className="px-4 py-2 text-left font-semibold text-foreground">Date</th>
+                                        <th className="px-4 py-2 text-left font-semibold text-foreground">Message</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {commitHistory.map((commit, index) => (
-                                        <tr key={index} className="border-b">
+                                        <tr key={index} className="border-b border-border">
                                             <td className="px-4 py-2">{commit.date}</td>
                                             <td className="px-4 py-2">
-                                                <a href={commit.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+                                                <a href={commit.url} target="_blank" rel="noopener noreferrer" className="text-primary underline">
                                                     {commit.message}
                                                 </a>
                                             </td>
