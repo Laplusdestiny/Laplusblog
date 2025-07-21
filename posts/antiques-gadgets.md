@@ -20,29 +20,29 @@ tags: ["antiques", "gadget", "memoir"]
 
 掘り出したものの写真をいくつか載せておきます。バンドはサードパーティのバンドがつけられるようなケースを付けて使っていました。（おかげで結構ゴツい）ブート画面でAndroid Wearのロゴが出てくるのを久しぶりに見て懐かしい！ってなってました。
 
-![ブート画面](/antique-gadgets/swr50_boot.webp)
+![ブート画面](/posts/antique-gadgets/swr50_boot.webp)
 *このAndroidのロゴ自体も懐かしい*
 
 起動するとデザインもちょっと懐かしい感じ。
 
-![Welcome画面](/antique-gadgets/swr50_welcome.webp)
+![Welcome画面](/posts/antique-gadgets/swr50_welcome.webp)
 *Welcome画面、Materialデザインっぽい*
 
 一応まだ使えるのかな～と思って、ペアリングしようと今はWear OSアプリを入れてペアリングをしてみようとしましたが、まだペアリングができてびっくりしました！
 
-![Wear OSアプリ画面](/antique-gadgets/swr50_wearos_app.webp)
+![Wear OSアプリ画面](/posts/antique-gadgets/swr50_wearos_app.webp)
 *Wear OSアプリ画面、アプリのほとんどのリンクが機能しない*
 
 ただ表示されているアプリなども提供が終わっていたりしていて実質標準機能ぐらいしか使えない状況でした。
 
 ちなみにバージョンの情報は以下の通りでした（今どき誰がこんな古いものを使っているのか）
 
-![バージョン情報](/antique-gadgets/swr50_version.webp)
+![バージョン情報](/posts/antique-gadgets/swr50_version.webp)
 *8年以上前でセキュリティパッチが止まっている*
 
 当時はXperia ULとかZ4を使っていた時代でまだまだAndroidスマホ自体も発展途上感がある中でしたが、スマートウォッチもこれからの製品だなという感じでした。通知の確認や音楽の操作などが主な使い方ではありましたけど、Android wearの出始めとしては良かった気がします。Androidスマホをメインで据えていたのはXperia Z4が最後で、その後はiPhoneメインに移っていったため、スマートウォッチもApple Watchに移行してしまいました。（サブでは依然としてAndroidは持っている）
 
 当時の他のメーカーのスマートウォッチを思い出すと、円形の画面が特徴的だったMotorolaのMoto 360とか、FossilのQシリーズとかがほしいな～と思っていました。
 
-![スマートウォッチたち](/antique-gadgets/smartwatches.webp)
+![スマートウォッチたち](/posts/antique-gadgets/smartwatches.webp)
 *円形はロマンだったけど使いやすいのかはわからない*

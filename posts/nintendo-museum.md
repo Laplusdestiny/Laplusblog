@@ -11,7 +11,7 @@ tags: ['nintendo', 'museum', 'travel']
 
 申し込みのメールを見ると以下の日程で申し込みしました。
 
-![申し込みメール](/nintendo-museum/ticket.png)
+![申し込みメール](/posts/nintendo-museum/ticket.png)
 *基本午後からしか申し込めなかった*
 
 流石にオープンすぐの月なのであまり空いている時間がなく遅めの時間でもいいかと思って申し込みしました。（遅めの時間については後ほど言及あり）
@@ -26,7 +26,7 @@ tags: ['nintendo', 'museum', 'travel']
 
 駅からは歩いて10分もしないところなのでアクセスはとてもいいです。信号のある横断歩道を2回渡れば無事に入口に到着。
 
-![ニンテンドーミュージアム入口](/nintendo-museum/entrance.webp)
+![ニンテンドーミュージアム入口](/posts/nintendo-museum/entrance.webp)
 *HPでも見る画角*
 
 ## ニンテンドーミュージアム入場
@@ -41,19 +41,19 @@ tags: ['nintendo', 'museum', 'travel']
 
 検査を通過するとその後に入館証をもらうことができます。入館証のデザインはウェブから選択でき、Miiかデフォルトでマリオを選べます。
 
-![入館証](/nintendo-museum/card.webp)
+![入館証](/posts/nintendo-museum/card.webp)
 *この裏側は自分で選んだデザインと名前が記載されている*
 
 これで内部に入ることができます。通過後には広場があり、ドカンやブロックなどがあり撮影スポットになっています。
 
-![ドカンとブロック](/nintendo-museum/garden.webp)
+![ドカンとブロック](/posts/nintendo-museum/garden.webp)
 *USJにあるやつに近いかも？*
 
 直進して左側がいよいよメインの会場です。
 
 入ってすぐにキノピオのモニュメントがあります。頭を少し揺さぶると歌ってくれ、5人とも揺さぶるとハーモニーを奏でてくれます。
 
-![キノピオのモニュメント](/nintendo-museum/toad.webp)
+![キノピオのモニュメント](/posts/nintendo-museum/toad.webp)
 *撫でると歌うよ！*
 
 ワークショップの受付もそのあたりにある。
@@ -62,7 +62,7 @@ tags: ['nintendo', 'museum', 'travel']
 
 ここの壁には任天堂のキャラクターが勢揃い。
 
-![任天堂キャラクター勢揃い壁](/nintendo-museum/wall.webp)
+![任天堂キャラクター勢揃い壁](/posts/nintendo-museum/wall.webp)
 *好きなキャラを探すのに時間がかかる*
 
 映像を見終わってゲートをくくればいよいよメイン会場です。エスカレーターを上がりますが、過去のゲーム機の起動音を聞きながら進みます。
@@ -99,7 +99,7 @@ tags: ['nintendo', 'museum', 'travel']
 
 遊んだゲームはあとからウェブで確認できます。
 
-![遊んだゲーム一覧](/nintendo-museum/play-history.png)
+![遊んだゲーム一覧](/posts/nintendo-museum/play-history.png)
 *入館証をかざすからこういうのができるのいい*
 
 ### ザッパー&スコープSP
@@ -108,17 +108,17 @@ tags: ['nintendo', 'museum', 'travel']
 
 武器はザッパーとスーパースコープの2種類から選べます。途中で持ち変えることも可能です。
 
-![ザッパー](/nintendo-museum/zapper.webp)
+![ザッパー](/posts/nintendo-museum/zapper.webp)
 *ザッパー、片手で持ちトリガーを引くことで打てる。*
 
-![スーパースコープ](/nintendo-museum/superscope.webp)
+![スーパースコープ](/posts/nintendo-museum/superscope.webp)
 *スーパースコープ、肩に担いで打てる。*
 
 私はスプラをやっていることもあり、なじみがあるザッパーを選択。
 
 小さい的のほうがポイントが入るようなので、狙ってやっていたらなんと優勝できました！
 
-![リザルト](/nintendo-museum/zapper-scope-results.jpg)
+![リザルト](/posts/nintendo-museum/zapper-scope-results.jpg)
 *金色のザッパーが！あなたは超えられるか！？*
 
 ## ボーナスステージという名のショップ
@@ -137,13 +137,13 @@ tags: ['nintendo', 'museum', 'travel']
 
 戦利品を先に見せるとこんな感じ、買い込みました…
 
-![戦利品](/nintendo-museum/souvenir.webp)
+![戦利品](/posts/nintendo-museum/souvenir.webp)
 *◯万円也*
 
 ボーナスステージを出ると、入口近くに出ます。まわりを見渡すとこっそりとキャラクターが隠れています。他にもあったのかもしれません…。
 
-![ドンキーコング](/nintendo-museum/donkey-kong.webp)
-![マリオ](/nintendo-museum/wall-mario.webp)
+![ドンキーコング](/posts/nintendo-museum/donkey-kong.webp)
+![マリオ](/posts/nintendo-museum/wall-mario.webp)
 
 ## まとめ
 

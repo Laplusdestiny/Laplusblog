@@ -21,7 +21,7 @@ tags: ['notepc', 'computer', 'development']
 
 サクッと修正したりするぐらいならiPadでもいいのですが、機能の物足りなさやショートカットキーがあまり効かなかったり、たまに変な動作をするので快適とは全然言えない状況です。このブログはGitHub codespaceで開発しているのでvscodeはやめられない状況です。
 
-![Visual Studio Code for the Web](/notepc/vscodedev.webp)
+![Visual Studio Code for the Web](/posts/notepc/vscodedev.webp)
 *TunnelとかCodespaceとか活用すると意外と使える*
 
 ちなみに[vscode.dev](https://vscode.dev)は以下の使い方をしています。
@@ -39,7 +39,7 @@ tags: ['notepc', 'computer', 'development']
 
 2024年末あたりで話題になっているのはやっぱり「Copilot PC」でしょうか。新発売のPCには基本的にNPUが搭載されているチップが載っている印象です。（やすいものはそれから外れていますが）
 
-![NPU CPUs](/notepc/ai_cpus.webp)
+![NPU CPUs](/posts/notepc/ai_cpus.webp)
 *NPU搭載プロセッサーたち*
 
 しかしまだローカルで処理させる必要性のあるAIを使った機能などにキラーサービスがなく、お絵描きサポートやカメラの高機能化など絶対にないと困るみたいなものは出てきていない印象です。
@@ -50,7 +50,7 @@ Intel CPUの問題もあり最近はコスパのいいRyzenのほうが人気に
 
 そしてArm系といえばMacのMシリーズのチップもありますね。WindowsにこだわらなければMacbookのほうがいろいろといい面が多い気はします。バッテリー持ちもいいですし、特定の処理であれば性能もx86_64系のCPUと遜色ないレベルにまで来ている印象です。
 
-![Apple M4シリーズ](/notepc/apple_m4series.webp)
+![Apple M4シリーズ](/posts/notepc/apple_m4series.webp)
 *Arm CPUでも性能が高めなMシリーズ*
 
 私も昔はMacbook Proを持っていたのですがIntel CPUだったこと（今はなきTouch bar搭載機種）とiPadも持っていたので役割がぶつかっていたということがあり、Macbook Proを売り払った過去があります（Mac OSがそこまで身体に馴染まなかったというのもあり）。
@@ -139,10 +139,10 @@ PCコンフル、恥ずかしながら初めて知った名前で日本橋の店
 
 外観は少し汚れていますが、致命的なところはなくこれでこんな安いの！?ってなっていました。
 
-![ボディーの欠け](/notepc/pc_damage.webp)
+![ボディーの欠け](/posts/notepc/pc_damage.webp)
 *ちょっとだけ欠けている*
 
-![日焼けみたいな汚れ](/notepc/pc_stain.webp)
+![日焼けみたいな汚れ](/posts/notepc/pc_stain.webp)
 *日焼けのようなシミ*
 
 このスペックで**39,800円**でした！なんでこんな安いのか店員さんとも少し話しましたが、Windows11がサポートされている一番古いCPUの世代だからだそうです。(調べてみると、第7世代でも一部は対応している様子ですが、ギリギリなのには変わりないですね。→ [Windows 11 でサポートされている Intel プロセッサ](https://learn.microsoft.com/ja-jp/windows-hardware/design/minimum/supported/windows-11-supported-intel-processors))
