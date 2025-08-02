@@ -50,7 +50,7 @@ export async function generateMetadata({ params }) {
             url: `https://blog.laplusdestiny.com/${slug}`,
             images: [
                 {
-                    url: 'https://blog.laplusdestiny.com/ogp.png',
+                    url: '/ogp.png',
                     width: 800,
                     height: 600,
                     alt: title,
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }) {
             title: `${title} - Laplusblog`,
             description: description,
             image: {
-                url: 'https://blog.laplusdestiny.com/ogp.png',
+                url: '/ogp.png',
                 alt: title,
                 width: 800,
                 height: 600,
