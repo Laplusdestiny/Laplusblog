@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     siteName: 'Laplusblog',
     images: [
       {
-        url: 'https://blog.laplusdestiny.com/ogp.png',
+        url: '/ogp.png',
         width: 1200,
         height: 630,
         alt: 'Laplusblog OGP Image',
