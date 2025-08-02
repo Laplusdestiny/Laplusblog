@@ -47,7 +47,7 @@ export async function generateMetadata({ params }) {
             description: description,
             type: 'article',
             siteName: 'Laplusblog',
-            url: `https://blog.laplusdestiny.com/${slug}`,
+            url: `https://blog.laplusdestiny.com/posts${slug}`,
             images: [
                 {
                     url: '/ogp.png',
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }) {
                 width: 800,
                 height: 600,
             },
-            url: `https://blog.laplusdestiny.com/${slug}`,
+            url: `https://blog.laplusdestiny.com/posts/${slug}`,
             site: '@Laplusdestiny',
             creator: '@Laplusdestiny',
         }
@@ -104,7 +104,7 @@ export default async function BlogPost({ params }) {
     const contentHtml = processedContent.toString();
 
     // Construct URLs for sharing on various social media platforms
-    const pageUrl = `https://blog.laplusdestiny.com/${slug}`;
+    const pageUrl = `https://blog.laplusdestiny.com/posts/${slug}`;
     const twitterUrl = `https://twitter.com/share?url=${pageUrl}&text=Laplusblog ${encodeURIComponent(title)}`;
     const misskeyUrl = `https://misskey-hub.net/share/?text=Laplusblog+${encodeURIComponent(title)}&url=${encodeURIComponent(pageUrl)}&visibility=public&localOnly=0&manualInstance=misskey.io`;
     const blueskyUrl = `https://bsky.app/intent/compose?text=Laplusblog+${encodeURIComponent(title)} ${encodeURIComponent(pageUrl)}`;
