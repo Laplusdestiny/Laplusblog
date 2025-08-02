@@ -14,7 +14,7 @@ tags: ["live", "vtuber", "ookamimio", "concert"]
 
 6年近く追い続けていたミオちゃんがずっと夢に願っていたライブがついに実現するということで、私も参加を決意しました！今回はその参加までの道のりと、ライブ当日の様子をレポートします。
 
-告知発表はこのトリセツ配信の最後で行われました。咆哮が聞けたり、ホロメンからの手紙など笑いあり涙ありでしたが、告知がやっぱり一番のサプライズでした。
+告知発表はこのトリセツ配信の最後で行われました。咆哮が聞けたり、ホロメンからの手紙など笑いあり涙ありでしたが、1st Liveや2ndアルバムの告知がやっぱり一番のサプライズでした。
 
 <div style="display: flex; justify-content: center; align-items: center; margin: 10px 0;">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/3pEp8hxzWNM?si=z7zfTQthluYI3QEr"
@@ -24,10 +24,18 @@ tags: ["live", "vtuber", "ookamimio", "concert"]
   </iframe>
 </div>
 
-それから少し音沙汰なかったですが、7月に入ってから詳細が発表されました。チケットの話、2ndアルバムの話やライブグッズなどてんこ盛りでした。（前編のクイズではラプちゃんの変態っぷりが本領発揮されていて何度も見ちゃいますw）
+それから少し音沙汰なかったですが、7月に入ってから詳細が発表されました。チケットの話やライブグッズなどてんこ盛りでした。（前編のクイズではラプちゃんの変態っぷりが本領発揮されていて何度も見ちゃいますw）
 
 <div style="display: flex; justify-content: center; align-items: center; margin: 10px 0;">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/RCduwnvOVf0?si=YQJtznnUsqtyWMuX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+### Sparkleといえば
+
+Sparkleといえば、ミオちゃんが最初にアップロードしたRADWIMPSの「スパークル」のカバーが思い出されますね。ミオちゃんの歌声とRADWIMPSの曲が絶妙にマッチしていて、アンニュイ感じの絵と歌声が好きで今でも何度も聞いています。ミオちゃんもこれがお気に入りと言っていたのもあり、ミオファの森では「スパークル」といえばミオちゃんの曲という認識が定着している気がします。
+
+<div style="display: flex; justify-content: center; align-items: center; margin: 10px 0;">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/2l_6oIGTrbg?si=hMV4vKuquTFNCdfI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
 ## 2nd アルバム「My Sparkle」
