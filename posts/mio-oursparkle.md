@@ -70,6 +70,10 @@ Sparkleといえば、ミオちゃんが最初にアップロードしたRADWIMP
 <iframe height="450" width="100%" title="メディアプレイヤー" src="https://embed.music.apple.com/jp/album/my-sparkle/1831440350?itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1831440350&amp;theme=auto" id="embedPlayer" style="border: 0px; border-radius: 12px; width: 100%; height: 450px; max-width: 660px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *; clipboard-write"></iframe>
 </div>
 
+一通り聞き終わりましたが、個人的に好きなのは、「けものへんの女」です。曲の雰囲気がかっこ良くて好きなのと、狼であることが前面に押し出されている歌詞で、ミオちゃんのキャラクター性がよく表現されていると思います。
+
+あとは、「little pack」や「セツナライト・スパークル」もお気に入りです、特に「セツナライト・スパークル」はライブのトリに歌われそうな予感がしました。
+
 ## チケット予約
 
 元々リアル会場へ行くライブはあまり積極的に応募することはなかったので、自分でやるのは久しぶりでした。（米津さんのは友達に任せっきり）
@@ -92,5 +96,15 @@ Sparkleといえば、ミオちゃんが最初にアップロードしたRADWIMP
 
 ![Our Sparkle 単品グッズ](https://hololive.hololivepro.com/wp-content/uploads/2025/06/250628_sub_04.webp)
 *グッズ一覧、トートバッグだけ追加購入*
+
+## インタビュー記事
+
+billboard Japanからミオちゃんのインタビュー記事が公開されました。歌やライブへの意気込み、アルバムへの思いなどが語られています。
+
+[billboard Japan インタビュー](https://www.billboard-japan.com/special/detail/4937)
+
+1stアルバムとはコンセプトが違い、曲調がより多様化していることも語られており、大人しめの曲も多い印象がありました。アップテンポな曲も高らかに歌い上げるミオちゃんではありますが、バラードとか落ち着いた曲調の曲もしっかりと歌ってくれるし、その歌声もまた素晴らしく、2ndアルバムでそれらをたっぷり堪能することができます。
+
+Howlingのリアレンジバージョンも収録された理由とかも言及されていて、ミオちゃんがそういうことを考えながら作ってくれたのかと思いながら読んでいました。
 
 （新情報があり次第追記します）
