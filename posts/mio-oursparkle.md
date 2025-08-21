@@ -49,6 +49,27 @@ Sparkleといえば、ミオちゃんが最初にアップロードしたRADWIMP
 
 既にMVが出ている夏宿りのおしゃれな雰囲気はとてもいいですし、デビュー曲のHowlingのリアレンジバージョンもあったりして、他の曲もリリースが待ち遠しいです！
 
+### 発売日当日…
+
+発売日に届けられました！
+
+![My Sparkle 実物](/posts/mio-oursparkle/mysparkle.webp)
+*実物届いた！*
+
+標準のジャケットは普通のものと同じですが、中に完全生産限定盤のジャケットも含まれていて、そこにミオちゃんのサインも書かれていましたので差し替えました！
+
+また特典として、アクリルスタンドやステッカー、ホロカが入っていました～アクリススタンドはそそくさと組み立てて飾りました！
+
+![My Sparkle 特典](/posts/mio-oursparkle/mysparkle_benefits.webp)
+*完全生産限定盤の特典*
+
+
+みんなもここから聞けー！！！ → [各種配信サイト](https://cover.lnk.to/MySparkle)
+
+<div style="display: flex; justify-content: center; align-items: center; margin: 10px 0;">
+<iframe height="450" width="100%" title="メディアプレイヤー" src="https://embed.music.apple.com/jp/album/my-sparkle/1831440350?itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1831440350&amp;theme=auto" id="embedPlayer" style="border: 0px; border-radius: 12px; width: 100%; height: 450px; max-width: 660px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *; clipboard-write"></iframe>
+</div>
+
 ## チケット予約
 
 元々リアル会場へ行くライブはあまり積極的に応募することはなかったので、自分でやるのは久しぶりでした。（米津さんのは友達に任せっきり）
