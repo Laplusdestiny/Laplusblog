@@ -70,3 +70,11 @@ imagemagickを使って、ブログ用の画像に変換する
   ```bash
   convert image1.jpg image2.jpg +append output.jpg
   ```
+
+- 画像を縦方向に結合する
+
+  ```bash
+  convert image1.jpg image2.jpg -append output.jpg
+  ```
+
+  結合時は縦横サイズを統一してから結合すること。
