@@ -74,6 +74,8 @@ img~em {
 
 img.socialmedia {
   all: unset;
+  display: block;
+  margin: 1rem auto 0;
 }
 
 .toc-container h2 {

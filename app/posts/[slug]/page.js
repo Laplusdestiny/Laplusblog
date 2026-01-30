@@ -207,13 +207,15 @@ export default async function BlogPost({ params }) {
                             </Link>
                         </div>
                         {/* Misskey Share Button */}
-                        <div className='col-span-1 flex justify-center items-center bg-[#192320]'>
+                        <div className='col-span-1 flex justify-center items-center bg-[#81cd00]'>
                             <Link href={misskeyUrl} target="_blank" rel="noopener noreferrer">
                                 <Image
-                                    src="https://github.com/misskey-dev/assets/blob/main/public/favicon.png?raw=true"
-                                    height={45}
-                                    width={45}
+                                    src="/misskey.svg"
+                                    height={40}
+                                    width={40}
                                     alt="misskey.io"
+                                    className="socialmedia"
+                                    style={{ width: '40px', height: '40px' }}
                                 />
                             </Link>
                         </div>
