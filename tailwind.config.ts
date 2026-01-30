@@ -1,20 +1,24 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+export default {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: 'hsl(var(--background) / <alpha-value>)',
+        foreground: 'hsl(var(--foreground) / <alpha-value>)',
+        card: 'hsl(var(--card) / <alpha-value>)',
+        'card-foreground': 'hsl(var(--card-foreground) / <alpha-value>)',
+        primary: 'hsl(var(--primary) / <alpha-value>)',
+        'primary-foreground': 'hsl(var(--primary-foreground) / <alpha-value>)',
+        secondary: 'hsl(var(--secondary) / <alpha-value>)',
+        'secondary-foreground': 'hsl(var(--secondary-foreground) / <alpha-value>)',
+        muted: 'hsl(var(--muted) / <alpha-value>)',
+        'muted-foreground': 'hsl(var(--muted-foreground) / <alpha-value>)',
+        border: 'hsl(var(--border) / <alpha-value>)',
       },
     },
   },
-  plugins: [require("tailwindcss-radix")],
+  plugins: [],
 };
-export default config;

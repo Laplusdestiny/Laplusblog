@@ -25,7 +25,7 @@ const DOMPurify = createDOMPurify(window);
 
 // Generate metadata for each blog post
 export async function generateMetadata({ params }) {
-    const { slug } = params;
+    const { slug } = await params;
     const filePath = path.join(process.cwd(), 'posts', `${slug}.md`);
 
     // Check if the markdown file exists
@@ -76,7 +76,7 @@ export async function generateMetadata({ params }) {
 
 // Parse markdown contents
 export default async function BlogPost({ params }) {
-    const { slug } = params;
+    const { slug } = await params;
     const filePath = path.join(process.cwd(), 'posts', `${slug}.md`);
 
     // Check if the markdown file exists
