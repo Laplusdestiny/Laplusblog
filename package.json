@@ -49,6 +49,5 @@
 		"postcss": "8.4.49",
 		"sudachi-synonyms-dictionary": "15.0.0",
 		"typescript": "5.7.2"
-	},
-	"packageManager": "pnpm@10.11.0"
+	}
 }
