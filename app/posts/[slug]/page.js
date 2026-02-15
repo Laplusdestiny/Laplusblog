@@ -17,6 +17,7 @@ import './content.css';
 import fetch from 'node-fetch';
 import { notFound } from 'next/navigation';
 import ClipboardButton from './ClipboardButton';
+import TwitterLoader from './TwitterLoader';
 
 
 
@@ -199,6 +200,7 @@ export default async function BlogPost({ params }) {
                         className="mt-6 prose lg:prose-xl dark:prose-invert"
                         dangerouslySetInnerHTML={{ __html: contentHtml }}
                     ></div>
+                    <TwitterLoader />
                 </div>
 
                 {/* Share buttons */}
