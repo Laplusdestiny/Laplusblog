@@ -8,8 +8,7 @@ import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import rehypeAutoLinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
-import createDOMPurify from 'dompurify';
-import { JSDOM } from 'jsdom';
+
 import Link from "next/link";
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,13 +19,11 @@ import { notFound } from 'next/navigation';
 import ClipboardButton from './ClipboardButton';
 import TwitterLoader from './TwitterLoader';
 
-// Create a DOMPurify instance with jsdom
-const window = new JSDOM('').window;
-const DOMPurify = createDOMPurify(window);
+
 
 // Generate metadata for each blog post
 export async function generateMetadata({ params }) {
-    const { slug } = params;
+    const { slug } = await params;
     const filePath = path.join(process.cwd(), 'posts', `${slug}.md`);
 
     // Check if the markdown file exists
@@ -77,7 +74,7 @@ export async function generateMetadata({ params }) {
 
 // Parse markdown contents
 export default async function BlogPost({ params }) {
-    const { slug } = params;
+    const { slug } = await params;
     const filePath = path.join(process.cwd(), 'posts', `${slug}.md`);
 
     // Check if the markdown file exists
@@ -103,6 +100,18 @@ export default async function BlogPost({ params }) {
         .process(content);
 
     const contentHtml = processedContent.toString();
+
+    // Extract H2/H3 headings for TOC without using jsdom/dompurify (server-safe)
+    const headingRegex = /<h([23])[^>]*id="([^"]+)"[^>]*>(.*?)<\/h\1>/gms;
+    const tocItems = [];
+    let _m;
+    while ((_m = headingRegex.exec(contentHtml)) !== null) {
+        const level = _m[1];
+        const id = _m[2];
+        const innerHtml = _m[3] || '';
+        const text = innerHtml.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+        tocItems.push({ id, text, isH3: level === '3' });
+    }
 
     // Construct URLs for sharing on various social media platforms
     const pageUrl = `https://blog.laplusdestiny.com/posts/${slug}`;
@@ -177,16 +186,11 @@ export default async function BlogPost({ params }) {
                         <h2 className="text-lg font-semibold text-card-foreground mb-3 toc-heading">Table of Contents</h2>
                         <div className="mt-2 text-sm text-card-foreground">
                             <ul className="pl-4 list-disc list-inside toc-list">
-                                {contentHtml.match(/<h[23](.*?)>(.*?)<\/h[23]>/g).map((heading, index) => {
-                                    const id = DOMPurify.sanitize(heading.match(/id=\"(.*?)\"/)[1]);
-                                    const headingText = DOMPurify.sanitize(heading, { ALLOWED_TAGS: [] }).trim();
-                                    const isH3 = heading.startsWith('<h3');
-                                    return (
-                                        <li key={index} className={`mb-1 hover:text-primary transition-all toc-item ${isH3 ? 'pl-4' : ''}`}>
-                                            <a href={`#${id}`} className="text-primary/80 underline hover:no-underline toc-link">{headingText}</a>
-                                        </li>
-                                    );
-                                })}
+                                {tocItems.length > 0 ? tocItems.map((h, index) => (
+                                    <li key={index} className={`mb-1 hover:text-primary transition-all toc-item ${h.isH3 ? 'pl-4' : ''}`}>
+                                        <a href={`#${encodeURIComponent(h.id)}`} className="text-primary/80 underline hover:no-underline toc-link">{h.text}</a>
+                                    </li>
+                                )) : <li className="text-muted-foreground">No headings</li>}
                             </ul>
                         </div>
                     </div>
@@ -209,13 +213,15 @@ export default async function BlogPost({ params }) {
                             </Link>
                         </div>
                         {/* Misskey Share Button */}
-                        <div className='col-span-1 flex justify-center items-center bg-[#192320]'>
+                        <div className='col-span-1 flex justify-center items-center bg-[#81cd00]'>
                             <Link href={misskeyUrl} target="_blank" rel="noopener noreferrer">
                                 <Image
-                                    src="https://github.com/misskey-dev/assets/blob/main/public/favicon.png?raw=true"
-                                    height={45}
-                                    width={45}
+                                    src="/misskey.svg"
+                                    height={40}
+                                    width={40}
                                     alt="misskey.io"
+                                    className="socialmedia"
+                                    style={{ width: '40px', height: '40px' }}
                                 />
                             </Link>
                         </div>
