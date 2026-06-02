@@ -61,50 +61,124 @@ export default async function Blogs() {
   );
 
 
+  const featuredPost = posts[0];
+  const remainingPosts = posts.slice(1);
+
   return (
-    <div className="bg-background py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl no-border">記事一覧</h2>
-          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <article
-                key={post.slug}
-                className="flex flex-col items-start justify-between rounded-lg border p-4 transition-shadow hover:shadow-lg"
+    <div className="py-8 md:py-16 max-w-4xl mx-auto">
+      {/* Introduction Hero Section */}
+      <div className="mb-16 md:mb-24 text-left border-b border-border/40 pb-10">
+        <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-2">Laplusdestiny</p>
+        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4">
+          Laplusblog
+        </h2>
+        <p className="text-sm md:text-base text-muted-foreground font-normal max-w-xl leading-relaxed">
+          <span className="inline-block mr-2">技術、デザイン、そして日々の考察。</span>
+          <span className="inline-block mr-2">思考を整理し、</span>
+          <span className="inline-block mr-2">洗練された言葉で書き綴る</span>
+          <span className="inline-block">個人の技術・雑記ブログです。</span>
+        </p>
+      </div>
+
+      {/* Featured Post (Latest Article) */}
+      {featuredPost && (
+        <div className="mb-20 md:mb-28">
+          <div className="flex items-center gap-x-3 text-xs tracking-wider text-muted-foreground uppercase font-semibold mb-4">
+            <span className="text-foreground border border-foreground/30 px-2 py-0.5 rounded text-[10px]">NEW</span>
+            <div>{featuredPost.frontmatter.date}</div>
+            <span>•</span>
+            <div>{featuredPost.wordCount.toLocaleString()} 文字</div>
+          </div>
+          
+          <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-4 leading-tight">
+            <Link
+              href={`/posts/${featuredPost.slug}`}
+              className="relative inline group transition-colors hover:text-foreground/80"
+            >
+              {featuredPost.frontmatter.title}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-foreground transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+          </h3>
+          
+          <p
+            className="text-base text-muted-foreground mb-6 leading-relaxed line-clamp-3 md:line-clamp-none max-w-3xl"
+            dangerouslySetInnerHTML={{ __html: `${featuredPost.frontmatter.description}` }}
+          ></p>
+          
+          <div className="flex flex-wrap gap-2 mb-6">
+            {featuredPost.frontmatter.tags && featuredPost.frontmatter.tags.map((tag: string) => (
+              <Link
+                key={tag}
+                href={`/tags/${tag}`}
+                className="rounded-full border border-border px-3 py-1 text-xs font-medium text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors"
               >
-                <div className="group relative">
-                  {/* Display date and word count */}
-                  <div className="flex items-center gap-x-4 text-xs text-muted-foreground">
-                    <div>{post.frontmatter.date}</div>
-                    <span>•</span>
-                    <div>{post.wordCount.toLocaleString()} 文字</div>
-                  </div>
-                  {/* Title, link */}
-                  <h3 className="mt-3 text-lg font-semibold leading-6 text-primary group-hover:text-primary/80">
-                    <Link
-                      href={`/posts/${post.slug}`}
-                      className="mt-3 text-lg font-semibold leading-6 text-primary group-hover:text-primary/80"
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                  </h3>
-                  {/* Description */}
-                  <p
-                    className="mt-5 line-clamp-3 text-sm leading-6 text-muted-foreground"
-                    dangerouslySetInnerHTML={{ __html: `${post.frontmatter.description}` }}
-                  ></p>
-                  {/* Tags */}
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {post.frontmatter.tags && post.frontmatter.tags.map((tag: string) => (
-                      <Link key={tag} href={`/tags/${tag}`} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground hover:bg-secondary/80">
-                        {tag}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </article>
+                #{tag}
+              </Link>
             ))}
           </div>
+
+          <div className="border-b border-border/40 pb-12">
+            <Link
+              href={`/posts/${featuredPost.slug}`}
+              className="text-sm font-semibold tracking-wider text-foreground hover:opacity-70 transition-opacity flex items-center gap-1"
+            >
+              続きを読む <span className="text-xs">→</span>
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Remaining Posts Grid */}
+      <div>
+        <h4 className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-8">
+          過去の記事一覧
+        </h4>
+        <div className="grid gap-12 sm:grid-cols-2">
+          {remainingPosts.map((post) => (
+            <article
+              key={post.slug}
+              className="flex flex-col items-start justify-between border-b border-border/40 pb-8 transition-opacity duration-300"
+            >
+              <div className="w-full">
+                {/* Date & Word count */}
+                <div className="flex items-center gap-x-2 text-[11px] tracking-wider text-muted-foreground font-medium uppercase mb-3">
+                  <div>{post.frontmatter.date}</div>
+                  <span>•</span>
+                  <div>{post.wordCount.toLocaleString()} 文字</div>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg font-bold tracking-tight text-foreground mb-3 leading-snug">
+                  <Link
+                    href={`/posts/${post.slug}`}
+                    className="relative inline-block group hover:text-foreground/80 transition-colors"
+                  >
+                    {post.frontmatter.title}
+                    <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-foreground transition-all duration-300 group-hover:w-full"></span>
+                  </Link>
+                </h3>
+
+                {/* Description */}
+                <p
+                  className="line-clamp-3 text-sm leading-relaxed text-muted-foreground mb-4 font-normal"
+                  dangerouslySetInnerHTML={{ __html: `${post.frontmatter.description}` }}
+                ></p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5">
+                  {post.frontmatter.tags && post.frontmatter.tags.map((tag: string) => (
+                    <Link
+                      key={tag}
+                      href={`/tags/${tag}`}
+                      className="rounded-full bg-secondary px-2.5 py-0.5 text-[11px] font-medium text-secondary-foreground hover:bg-secondary/70 transition-colors"
+                    >
+                      {tag}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </div>
