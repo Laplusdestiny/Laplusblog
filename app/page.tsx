@@ -73,8 +73,10 @@ export default async function Blogs() {
           Laplusblog
         </h2>
         <p className="text-sm md:text-base text-muted-foreground font-normal max-w-xl leading-relaxed">
-          技術、デザイン、そして日々の考察。
-          思考を整理し、洗練された言葉で書き綴る個人の技術・雑記ブログです。
+          <span className="inline-block mr-2">技術、デザイン、そして日々の考察。</span>
+          <span className="inline-block mr-2">思考を整理し、</span>
+          <span className="inline-block mr-2">洗練された言葉で書き綴る</span>
+          <span className="inline-block">個人の技術・雑記ブログです。</span>
         </p>
       </div>
 
