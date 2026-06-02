@@ -36,12 +36,19 @@ export default async function Blogs() {
     fileNames.map(async (fileName) => {
       const filePath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(filePath, 'utf8');
-      const { data } = matter(fileContents);
+      const { data, content } = matter(fileContents);
+
+      // マークダウン記号やリンク記述、空白を除去して純粋な文字数を算出
+      const cleanContent = content
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // リンクはテキストのみ残す
+        .replace(/[#*`~\-\n\r\s]/g, '');         // マークダウン記号と改行・空白を除去
+      const wordCount = cleanContent.length;
 
       // Get slug and frontmatter(title, date, description)
       return {
         slug: fileName.replace('.md', ''),
         frontmatter: data,
+        wordCount,
       };
     })
   ).then((posts) =>
@@ -66,9 +73,11 @@ export default async function Blogs() {
                 className="flex flex-col items-start justify-between rounded-lg border p-4 transition-shadow hover:shadow-lg"
               >
                 <div className="group relative">
-                  {/* Display date */}
-                  <div className="flex items-center gap-x-4 text-xs">
-                    <div className="text-muted-foreground">{post.frontmatter.date}</div>
+                  {/* Display date and word count */}
+                  <div className="flex items-center gap-x-4 text-xs text-muted-foreground">
+                    <div>{post.frontmatter.date}</div>
+                    <span>•</span>
+                    <div>{post.wordCount.toLocaleString()} 文字</div>
                   </div>
                   {/* Title, link */}
                   <h3 className="mt-3 text-lg font-semibold leading-6 text-primary group-hover:text-primary/80">
