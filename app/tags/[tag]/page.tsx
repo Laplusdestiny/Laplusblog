@@ -39,44 +39,64 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
     );
 
   return (
-    <div className="bg-background py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl no-border">#{params.tag}</h2>
-          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <article
-                key={post.slug}
-                className="flex flex-col items-start justify-between rounded-lg border p-4 transition-shadow hover:shadow-lg"
-              >
-                <div className="group relative">
-                  <div className="flex items-center gap-x-4 text-xs">
-                    <div className="text-muted-foreground">{post.frontmatter.date}</div>
-                  </div>
-                  <h3 className="mt-3 text-lg font-semibold leading-6 text-primary group-hover:text-primary/80">
-                    <Link
-                      href={`/posts/${post.slug}`}
-                      className="mt-3 text-lg font-semibold leading-6 text-primary group-hover:text-primary/80"
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                  </h3>
-                  <p
-                    className="mt-5 line-clamp-3 text-sm leading-6 text-muted-foreground"
-                    dangerouslySetInnerHTML={{ __html: `${post.frontmatter.description}` }}
-                  ></p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {post.frontmatter.tags && post.frontmatter.tags.map((tag: string) => (
-                      <Link key={tag} href={`/tags/${tag}`} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground hover:bg-secondary/80">
-                        {tag}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
+    <div className="py-8 md:py-16 max-w-4xl mx-auto">
+      {/* Title section */}
+      <div className="mb-12 border-b border-border/40 pb-6">
+        <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-2">タグ別記事一覧</p>
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+          #{params.tag}
+        </h2>
+      </div>
+
+      {/* Posts List */}
+      <div className="grid gap-12 sm:grid-cols-2">
+        {posts.map((post) => (
+          <article
+            key={post.slug}
+            className="flex flex-col items-start justify-between border-b border-border/40 pb-8 transition-opacity duration-300"
+          >
+            <div className="w-full">
+              {/* Date */}
+              <div className="flex items-center gap-x-2 text-[11px] tracking-wider text-muted-foreground font-medium uppercase mb-3">
+                <div>{post.frontmatter.date}</div>
+              </div>
+
+              {/* Title */}
+              <h3 className="text-lg font-bold tracking-tight text-foreground mb-3 leading-snug">
+                <Link
+                  href={`/posts/${post.slug}`}
+                  className="relative inline-block group hover:text-foreground/80 transition-colors"
+                >
+                  {post.frontmatter.title}
+                  <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-foreground transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+              </h3>
+
+              {/* Description */}
+              <p
+                className="line-clamp-3 text-sm leading-relaxed text-muted-foreground mb-4 font-normal"
+                dangerouslySetInnerHTML={{ __html: `${post.frontmatter.description}` }}
+              ></p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-1.5">
+                {post.frontmatter.tags && post.frontmatter.tags.map((tag: string) => (
+                  <Link
+                    key={tag}
+                    href={`/tags/${tag}`}
+                    className={`rounded-full px-2.5 py-0.5 text-[11px] font-medium transition-colors ${
+                      tag === params.tag
+                        ? 'bg-foreground text-background hover:opacity-80'
+                        : 'bg-secondary text-secondary-foreground hover:bg-secondary/70'
+                    }`}
+                  >
+                    {tag}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   );
