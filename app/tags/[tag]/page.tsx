@@ -4,14 +4,16 @@ import matter from 'gray-matter';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: { tag: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ tag: string }> }): Promise<Metadata> {
+  const { tag } = await params;
   return {
-    title: `#${params.tag} | Laplusblog`,
-    description: `Posts tagged with #${params.tag}`,
+    title: `#${tag} | Laplusblog`,
+    description: `Posts tagged with #${tag}`,
   };
 }
 
-export default async function TagPage({ params }: { params: { tag: string } }) {
+export default async function TagPage({ params }: { params: Promise<{ tag: string }> }) {
+  const { tag } = await params;
   const postsDirectory = path.join(process.cwd(), 'posts');
   const fileNames = fs.readdirSync(postsDirectory);
 
@@ -28,7 +30,7 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
     })
   )
     .then((posts) =>
-      posts.filter((post) => post.frontmatter.tags && post.frontmatter.tags.includes(params.tag))
+      posts.filter((post) => post.frontmatter.tags && post.frontmatter.tags.includes(tag))
     )
     .then((posts) =>
       posts.sort((a, b) => {
@@ -44,7 +46,7 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
       <div className="mb-12 border-b border-border/40 pb-6">
         <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-2">タグ別記事一覧</p>
         <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
-          #{params.tag}
+          #{tag}
         </h2>
       </div>
 
@@ -80,17 +82,17 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
 
               {/* Tags */}
               <div className="flex flex-wrap gap-1.5">
-                {post.frontmatter.tags && post.frontmatter.tags.map((tag: string) => (
+                {post.frontmatter.tags && post.frontmatter.tags.map((t: string) => (
                   <Link
-                    key={tag}
-                    href={`/tags/${tag}`}
+                    key={t}
+                    href={`/tags/${t}`}
                     className={`rounded-full px-2.5 py-0.5 text-[11px] font-medium transition-colors ${
-                      tag === params.tag
+                      t === tag
                         ? 'bg-foreground text-background hover:opacity-80'
                         : 'bg-secondary text-secondary-foreground hover:bg-secondary/70'
                     }`}
                   >
-                    {tag}
+                    {t}
                   </Link>
                 ))}
               </div>
