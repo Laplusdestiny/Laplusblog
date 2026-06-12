@@ -17,7 +17,7 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
   const postsDirectory = path.join(process.cwd(), 'posts');
   const fileNames = fs.readdirSync(postsDirectory);
 
-  const posts = await Promise.all(
+  const allPosts = await Promise.all(
     fileNames.map(async (fileName) => {
       const filePath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(filePath, 'utf8');
@@ -28,26 +28,47 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
         frontmatter: data,
       };
     })
-  )
-    .then((posts) =>
-      posts.filter((post) => post.frontmatter.tags && post.frontmatter.tags.includes(tag))
-    )
-    .then((posts) =>
-      posts.sort((a, b) => {
-        const dateA = new Date(a.frontmatter.date).getTime();
-        const dateB = new Date(b.frontmatter.date).getTime();
-        return dateB - dateA;
-      })
-    );
+  );
+
+  // Extract unique sorted tags
+  const allTags = Array.from(
+    new Set(allPosts.flatMap((post) => post.frontmatter.tags || []))
+  ).sort();
+
+  // Filter posts by active tag and sort them
+  const posts = allPosts
+    .filter((post) => post.frontmatter.tags && post.frontmatter.tags.includes(tag))
+    .sort((a, b) => {
+      const dateA = new Date(a.frontmatter.date).getTime();
+      const dateB = new Date(b.frontmatter.date).getTime();
+      return dateB - dateA;
+    });
 
   return (
     <div className="py-8 md:py-16 max-w-4xl mx-auto">
       {/* Title section */}
-      <div className="mb-12 border-b border-border/40 pb-6">
+      <div className="mb-12 border-b border-border/40 pb-8">
         <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-2">タグ別記事一覧</p>
-        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-6">
           #{tag}
         </h2>
+
+        {/* All Tags Quick Navigation */}
+        <div className="flex flex-wrap gap-2">
+          {allTags.map((t: string) => (
+            <Link
+              key={t}
+              href={`/tags/${t}`}
+              className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                t === tag
+                  ? 'bg-foreground text-background hover:opacity-80'
+                  : 'bg-secondary text-secondary-foreground hover:bg-secondary/70'
+              }`}
+            >
+              #{t}
+            </Link>
+          ))}
+        </div>
       </div>
 
       {/* Posts List */}
