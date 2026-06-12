@@ -64,6 +64,11 @@ export default async function Blogs() {
   const featuredPost = posts[0];
   const remainingPosts = posts.slice(1);
 
+  // Extract unique sorted tags
+  const allTags = Array.from(
+    new Set(posts.flatMap((post) => post.frontmatter.tags || []))
+  ).sort();
+
   return (
     <div className="py-8 md:py-16 max-w-4xl mx-auto">
       {/* Introduction Hero Section */}
@@ -127,6 +132,24 @@ export default async function Blogs() {
           </div>
         </div>
       )}
+
+      {/* Tags List Section */}
+      <div className="mb-16 pb-12 border-b border-border/40">
+        <h4 className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-6">
+          タグ一覧
+        </h4>
+        <div className="flex flex-wrap gap-2.5">
+          {allTags.map((tag) => (
+            <Link
+              key={tag}
+              href={`/tags/${tag}`}
+              className="rounded-full bg-secondary hover:bg-secondary/70 px-3 py-1.5 text-xs font-medium text-secondary-foreground transition-all duration-200"
+            >
+              #{tag}
+            </Link>
+          ))}
+        </div>
+      </div>
 
       {/* Remaining Posts Grid */}
       <div>
