@@ -93,14 +93,14 @@ This skill guides the agent through managing Git tasks safely, efficiently, and 
        - **Related Issue**: Close issue syntax (e.g., `Closes #123` or `Fixes #123`).
        - **Testing**: How the changes were tested.
   3. **Create the PR via CLI**:
-     - Run `gh pr create` with automated flags.
+     - Run `gh pr create` with automated flags. Make sure to assign yourself as the assignee using `--assignee "@me"`.
      - **Draft PR (Recommended for WIP)**:
        ```bash
-       gh pr create --title "<PR Title>" --body "<PR Description>" --draft
+       gh pr create --title "<PR Title>" --body "<PR Description>" --assignee "@me" --draft
        ```
      - **Ready PR**:
        ```bash
-       gh pr create --title "<PR Title>" --body "<PR Description>" --web
+       gh pr create --title "<PR Title>" --body "<PR Description>" --assignee "@me" --web
        ```
 
 ### 5. Strict Conflict Resolution
