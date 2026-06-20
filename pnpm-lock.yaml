@@ -87,8 +87,8 @@ importers:
         specifier: 4.0.2
         version: 4.0.2(tailwindcss@4.3.0)
       undici:
-        specifier: 7.24.0
-        version: 7.24.0
+        specifier: 7.28.0
+        version: 7.28.0
       unified:
         specifier: 11.0.5
         version: 11.0.5
@@ -2651,8 +2651,8 @@ packages:
   undici-types@7.10.0:
     resolution: {integrity: sha512-t5Fy/nfn+14LuOc2KNYg75vZqClpAiqscVvMygNnlsHBFpSXdJaYtXMcdNLpl/Qvc3P2cB3s6lOV51nqsFq4ag==}
 
-  undici@7.24.0:
-    resolution: {integrity: sha512-jxytwMHhsbdpBXxLAcuu0fzlQeXCNnWdDyRHpvWsUl8vd98UwYdl9YTyn8/HcpcJPC3pwUveefsa3zTxyD/ERg==}
+  undici@7.28.0:
+    resolution: {integrity: sha512-cRZYrTDwWznlnRiPjggAGxZXanty6M8RV1ff8Wm4LWXBp7/IG8v5DnOm74DtUBp9OONpK75YlPnIjQqX0dBDtA==}
     engines: {node: '>=20.18.1'}
 
   unified@11.0.5:
@@ -5576,7 +5576,7 @@ snapshots:
 
   undici-types@7.10.0: {}
 
-  undici@7.24.0: {}
+  undici@7.28.0: {}
 
   unified@11.0.5:
     dependencies:
