@@ -4,7 +4,11 @@ import Footer from "./Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistSans } from "geist/font/sans";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  metadataBase: new URL("https://blog.laplusdestiny.com"),
+};
 
 export default function RootLayout({
   children,
@@ -12,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={GeistSans.className}>
+    <html lang="ja" className={GeistSans.className} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
