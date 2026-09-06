@@ -2,7 +2,7 @@
 title: Galaxy Z Fold5のフィルム交換をお願いしてみた
 date: "2026-07-11"
 description: "Galaxy Z Fold5のフィルム交換をしにGalaxy Studio Osakaへ"
-tags: ["smartphone", "gadget", "android", "support"]
+tags: ["smartphone", "gadget", "android", "support", "galaxy", "foldable"]
 ---
 
 ## Galaxy Z Fold5のフィルムが浮き始めてしまった
