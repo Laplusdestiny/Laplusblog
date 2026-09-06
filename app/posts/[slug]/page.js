@@ -20,6 +20,15 @@ import ClipboardButton from './ClipboardButton';
 import TwitterLoader from './TwitterLoader';
 
 
+function stripHtmlTagsRepeatedly(input) {
+    let current = input || '';
+    let previous;
+    do {
+        previous = current;
+        current = current.replace(/<[^>]+>/g, '');
+    } while (current !== previous);
+    return current;
+}
 
 // Generate metadata for each blog post
 export async function generateMetadata({ params }) {
@@ -109,7 +118,7 @@ export default async function BlogPost({ params }) {
         const level = _m[1];
         const id = _m[2];
         const innerHtml = _m[3] || '';
-        const text = innerHtml.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+        const text = stripHtmlTagsRepeatedly(innerHtml).replace(/\s+/g, ' ').trim();
         tocItems.push({ id, text, isH3: level === '3' });
     }
 
