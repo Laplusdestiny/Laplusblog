@@ -40,6 +40,7 @@ export default async function Blogs() {
 
       // マークダウン記号やリンク記述、空白を除去して純粋な文字数を算出
       const cleanContent = content
+        .replace(/<!--[\s\S]*?-->/g, '')          // HTML コメント (<!-- nextpage --> 等) を除去
         .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // リンクはテキストのみ残す
         .replace(/[#*`~\-\n\r\s]/g, '');         // マークダウン記号と改行・空白を除去
       const wordCount = cleanContent.length;
