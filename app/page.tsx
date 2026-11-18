@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { splitPages } from '../lib/posts';
 
 export const metadata: Metadata = {
   title: 'Laplusblog',
@@ -39,7 +40,9 @@ export default async function Blogs() {
       const { data, content } = matter(fileContents);
 
       // マークダウン記号やリンク記述、空白を除去して純粋な文字数を算出
-      const cleanContent = content
+      // ページ区切り (<!-- nextpage -->) は splitPages で取り除いてから数える
+      const cleanContent = splitPages(content)
+        .join('\n')
         .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // リンクはテキストのみ残す
         .replace(/[#*`~\-\n\r\s]/g, '');         // マークダウン記号と改行・空白を除去
       const wordCount = cleanContent.length;
