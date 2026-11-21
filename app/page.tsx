@@ -1,9 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { splitPages } from '../lib/posts';
+import { getAllPosts, splitPages } from '../lib/posts';
 
 export const metadata: Metadata = {
   title: 'Laplusblog',
@@ -27,42 +24,16 @@ export const metadata: Metadata = {
 }
 
 export default async function Blogs() {
-  // Get markdown filelist
-  const postsDirectory = path.join(process.cwd(), 'posts');
-  const fileNames = fs.readdirSync(postsDirectory);
+  const posts = getAllPosts().map(({ slug, data, content }) => {
+    // マークダウン記号やリンク記述、空白を除去して純粋な文字数を算出
+    // ページ区切り (<!-- nextpage -->) は splitPages で取り除いてから数える
+    const cleanContent = splitPages(content)
+      .join('\n')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // リンクはテキストのみ残す
+      .replace(/[#*`~\-\n\r\s]/g, '');         // マークダウン記号と改行・空白を除去
 
-  // Get all file contents
-  const posts = await Promise.all(
-    // Get file contents
-    fileNames.map(async (fileName) => {
-      const filePath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(filePath, 'utf8');
-      const { data, content } = matter(fileContents);
-
-      // マークダウン記号やリンク記述、空白を除去して純粋な文字数を算出
-      // ページ区切り (<!-- nextpage -->) は splitPages で取り除いてから数える
-      const cleanContent = splitPages(content)
-        .join('\n')
-        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // リンクはテキストのみ残す
-        .replace(/[#*`~\-\n\r\s]/g, '');         // マークダウン記号と改行・空白を除去
-      const wordCount = cleanContent.length;
-
-      // Get slug and frontmatter(title, date, description)
-      return {
-        slug: fileName.replace('.md', ''),
-        frontmatter: data,
-        wordCount,
-      };
-    })
-  ).then((posts) =>
-    // Sort by updated date
-    posts.sort((a, b) => {
-      const dateA = new Date(a.frontmatter.date).getTime();
-      const dateB = new Date(b.frontmatter.date).getTime();
-      return dateB - dateA;
-    })
-  );
-
+    return { slug, frontmatter: data, wordCount: cleanContent.length };
+  });
 
   const featuredPost = posts[0];
   const remainingPosts = posts.slice(1);

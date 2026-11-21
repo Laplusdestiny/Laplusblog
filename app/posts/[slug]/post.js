@@ -15,7 +15,7 @@ import fetch from 'node-fetch';
 import { notFound } from 'next/navigation';
 import ClipboardButton from './ClipboardButton';
 import TwitterLoader from './TwitterLoader';
-import { getPost, postPath } from '../../../lib/posts';
+import { feedAlternateTypes, getPost, postPath } from '../../../lib/posts';
 
 const siteUrl = 'https://blog.laplusdestiny.com';
 
@@ -50,6 +50,7 @@ export async function generatePostMetadata(slug, pageNumber = 1) {
         description: description,
         alternates: {
             canonical: pageUrl,
+            types: feedAlternateTypes,
         },
         openGraph: {
             title: `${title} - Laplusblog`,
