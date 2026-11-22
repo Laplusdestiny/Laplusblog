@@ -1,50 +1,46 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+// For format details, see https://aka.ms/devcontainer.json
 {
-	"name": "Node.js",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"formulahendry.auto-close-tag",
-				"formulahendry.auto-rename-tag",
-				"esbenp.prettier-vscode",
-				"christian-kohler.path-intellisense",
-				"christian-kohler.npm-intellisense",
-				"ritwickdey.LiveServer",
-				"mhutchie.git-graph",
-				"dbaeumer.vscode-eslint",
-				"yzhang.markdown-all-in-one",
-				"oderwat.indent-rainbow",
-				"PKief.material-icon-theme",
-				"IBM.output-colorizer",
-				"3w36zj6.textlint",
-				"github.vscode-github-actions",
-				"GitHub.copilot",
-				"GitHub.copilot-chat",
-				"MS-CEINTL.vscode-language-pack-ja",
-				"DavidAnson.vscode-markdownlint",
-				"ionutvmi.path-autocomplete"
-			]
+	"name": "Laplusblog",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+
+	// Next.js の開発サーバー (npm run dev)
+	"forwardPorts": [3000],
+	"portsAttributes": {
+		"3000": {
+			"label": "Next.js",
+			"onAutoForward": "notify"
 		}
 	},
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": [
-		"npm install",
-		"npm -g install npm-check-updates"
+	// node_modules を名前付きボリュームに置き、ホスト側(WSL)とのファイル同期を避けて高速化する
+	"mounts": [
+		"source=laplusblog-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
 	],
 
-	// Configure tool-specific properties.
-	// "customizations": {},
+	// ボリュームは root 所有で作成されるため、node ユーザーに渡してから依存を入れる
+	"postCreateCommand": "sudo chown node:node node_modules && npm ci",
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"bradlc.vscode-tailwindcss",
+				"3w36zj6.textlint",
+				"DavidAnson.vscode-markdownlint",
+				"yzhang.markdown-all-in-one",
+				"christian-kohler.path-intellisense",
+				"christian-kohler.npm-intellisense",
+				"formulahendry.auto-rename-tag",
+				"mhutchie.git-graph",
+				"github.vscode-github-actions",
+				"GitHub.copilot-chat",
+				"MS-CEINTL.vscode-language-pack-ja",
+				"oderwat.indent-rainbow",
+				"PKief.material-icon-theme"
+			]
+		}
+	}
 }
