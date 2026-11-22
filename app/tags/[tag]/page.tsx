@@ -1,4 +1,4 @@
-import { getAllPosts } from '../../../lib/posts';
+import { getAllPosts, postPath } from '../../../lib/posts';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
@@ -65,7 +65,7 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
               {/* Title */}
               <h3 className="text-lg font-bold tracking-tight text-foreground mb-3 leading-snug">
                 <Link
-                  href={`/posts/${post.slug}`}
+                  href={postPath(post.slug)}
                   className="relative inline-block group hover:text-foreground/80 transition-colors"
                 >
                   {post.frontmatter.title}

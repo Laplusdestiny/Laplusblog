@@ -1,5 +1,5 @@
 import { Feed } from 'feed';
-import { getAllPosts } from '../../lib/posts';
+import { getAllPosts, postPath } from '../../lib/posts';
 
 // ビルド時に静的生成する (記事追加時は再デプロイで更新される)
 export const dynamic = 'force-static';
@@ -36,7 +36,7 @@ export function GET() {
   });
 
   posts.forEach((post, i) => {
-    const url = `${SITE_URL}/posts/${post.slug}`;
+    const url = `${SITE_URL}${postPath(post.slug)}`;
     feed.addItem({
       title: post.data.title,
       id: url,

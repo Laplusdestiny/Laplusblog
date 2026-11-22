@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getAllPosts, splitPages } from '../lib/posts';
+import { getAllPosts, postPath, splitPages } from '../lib/posts';
 
 export const metadata: Metadata = {
   title: 'Laplusblog',
@@ -71,7 +71,7 @@ export default async function Blogs() {
           
           <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-4 leading-tight">
             <Link
-              href={`/posts/${featuredPost.slug}`}
+              href={postPath(featuredPost.slug)}
               className="relative inline group transition-colors hover:text-foreground/80"
             >
               {featuredPost.frontmatter.title}
@@ -98,7 +98,7 @@ export default async function Blogs() {
 
           <div className="border-b border-border/40 pb-12">
             <Link
-              href={`/posts/${featuredPost.slug}`}
+              href={postPath(featuredPost.slug)}
               className="text-sm font-semibold tracking-wider text-foreground hover:opacity-70 transition-opacity flex items-center gap-1"
             >
               続きを読む <span className="text-xs">→</span>
@@ -147,7 +147,7 @@ export default async function Blogs() {
                 {/* Title */}
                 <h3 className="text-lg font-bold tracking-tight text-foreground mb-3 leading-snug">
                   <Link
-                    href={`/posts/${post.slug}`}
+                    href={postPath(post.slug)}
                     className="relative inline-block group hover:text-foreground/80 transition-colors"
                   >
                     {post.frontmatter.title}
