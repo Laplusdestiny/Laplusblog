@@ -1,6 +1,4 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import { getAllPosts, postPath } from '../../../lib/posts';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
@@ -14,35 +12,15 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
 
 export default async function TagPage({ params }: { params: Promise<{ tag: string }> }) {
   const { tag } = await params;
-  const postsDirectory = path.join(process.cwd(), 'posts');
-  const fileNames = fs.readdirSync(postsDirectory);
-
-  const allPosts = await Promise.all(
-    fileNames.map(async (fileName) => {
-      const filePath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(filePath, 'utf8');
-      const { data } = matter(fileContents);
-
-      return {
-        slug: fileName.replace('.md', ''),
-        frontmatter: data,
-      };
-    })
-  );
+  const allPosts = getAllPosts().map(({ slug, data }) => ({ slug, frontmatter: data }));
 
   // Extract unique sorted tags
   const allTags = Array.from(
     new Set(allPosts.flatMap((post) => post.frontmatter.tags || []))
   ).sort();
 
-  // Filter posts by active tag and sort them
-  const posts = allPosts
-    .filter((post) => post.frontmatter.tags && post.frontmatter.tags.includes(tag))
-    .sort((a, b) => {
-      const dateA = new Date(a.frontmatter.date).getTime();
-      const dateB = new Date(b.frontmatter.date).getTime();
-      return dateB - dateA;
-    });
+  // Filter posts by active tag (getAllPosts は日付の新しい順)
+  const posts = allPosts.filter((post) => post.frontmatter.tags && post.frontmatter.tags.includes(tag));
 
   return (
     <div className="py-8 md:py-16 max-w-4xl mx-auto">
@@ -87,7 +65,7 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
               {/* Title */}
               <h3 className="text-lg font-bold tracking-tight text-foreground mb-3 leading-snug">
                 <Link
-                  href={`/posts/${post.slug}`}
+                  href={postPath(post.slug)}
                   className="relative inline-block group hover:text-foreground/80 transition-colors"
                 >
                   {post.frontmatter.title}

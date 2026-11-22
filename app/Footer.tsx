@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBluesky, faSquareGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faSquareRss } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
 const Footer = () => {
@@ -58,6 +59,13 @@ const Footer = () => {
 							rel="noopener noreferrer"
 						>
 							<FontAwesomeIcon icon={faBluesky} className='h-5 w-5' />
+						</Link>
+						<Link
+							href="/feed.xml"
+							className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+							aria-label="RSS"
+						>
+							<FontAwesomeIcon icon={faSquareRss} className='h-5 w-5' />
 						</Link>
 					</div>
 				</div>

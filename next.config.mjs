@@ -16,7 +16,7 @@ const nextConfig = {
     async redirects() {
         return [
             {
-                source: '/:slug((?!posts|tags|api|_next|index|misskey\\.svg|ogp\\.png|ads\\.txt).+)',
+                source: '/:slug((?!posts|tags|api|_next|index|misskey\\.svg|ogp\\.png|ads\\.txt|feed\\.xml).+)',
                 destination: '/posts/:slug',
                 permanent: true,
             },
